@@ -51,6 +51,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelTitleControlPortal = new System.Windows.Forms.Panel();
             this.labelTitleControlPortal = new System.Windows.Forms.Label();
+            this.buttonCategory = new System.Windows.Forms.Button();
             this.tableLayoutPanelControlPortal.SuspendLayout();
             this.panelTopLabelControlPortal.SuspendLayout();
             this.panelDisplayControlPortal.SuspendLayout();
@@ -73,7 +74,7 @@
             this.tableLayoutPanelControlPortal.RowCount = 2;
             this.tableLayoutPanelControlPortal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 89F));
             this.tableLayoutPanelControlPortal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelControlPortal.Size = new System.Drawing.Size(1774, 773);
+            this.tableLayoutPanelControlPortal.Size = new System.Drawing.Size(1774, 818);
             this.tableLayoutPanelControlPortal.TabIndex = 0;
             // 
             // panelTopLabelControlPortal
@@ -108,7 +109,7 @@
             this.panelDisplayControlPortal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDisplayControlPortal.Location = new System.Drawing.Point(292, 92);
             this.panelDisplayControlPortal.Name = "panelDisplayControlPortal";
-            this.panelDisplayControlPortal.Size = new System.Drawing.Size(1479, 678);
+            this.panelDisplayControlPortal.Size = new System.Drawing.Size(1479, 723);
             this.panelDisplayControlPortal.TabIndex = 3;
             // 
             // userControlOurResponses
@@ -116,7 +117,7 @@
             this.userControlOurResponses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlOurResponses.Location = new System.Drawing.Point(0, 0);
             this.userControlOurResponses.Name = "userControlOurResponses";
-            this.userControlOurResponses.Size = new System.Drawing.Size(1475, 674);
+            this.userControlOurResponses.Size = new System.Drawing.Size(1475, 719);
             this.userControlOurResponses.TabIndex = 4;
             // 
             // userControlProjectBoard
@@ -124,7 +125,7 @@
             this.userControlProjectBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlProjectBoard.Location = new System.Drawing.Point(0, 0);
             this.userControlProjectBoard.Name = "userControlProjectBoard";
-            this.userControlProjectBoard.Size = new System.Drawing.Size(1475, 674);
+            this.userControlProjectBoard.Size = new System.Drawing.Size(1475, 719);
             this.userControlProjectBoard.TabIndex = 3;
             // 
             // userControlOurProjects
@@ -133,7 +134,7 @@
             this.userControlOurProjects.Location = new System.Drawing.Point(0, 0);
             this.userControlOurProjects.Margin = new System.Windows.Forms.Padding(4);
             this.userControlOurProjects.Name = "userControlOurProjects";
-            this.userControlOurProjects.Size = new System.Drawing.Size(1475, 674);
+            this.userControlOurProjects.Size = new System.Drawing.Size(1475, 719);
             this.userControlOurProjects.TabIndex = 2;
             // 
             // DashboardControlPanel1
@@ -142,7 +143,7 @@
             this.DashboardControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DashboardControlPanel1.Location = new System.Drawing.Point(0, 0);
             this.DashboardControlPanel1.Name = "DashboardControlPanel1";
-            this.DashboardControlPanel1.Size = new System.Drawing.Size(1475, 674);
+            this.DashboardControlPanel1.Size = new System.Drawing.Size(1475, 719);
             this.DashboardControlPanel1.TabIndex = 1;
             // 
             // UserManageControlPanel1
@@ -151,12 +152,13 @@
             this.UserManageControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserManageControlPanel1.Location = new System.Drawing.Point(0, 0);
             this.UserManageControlPanel1.Name = "UserManageControlPanel1";
-            this.UserManageControlPanel1.Size = new System.Drawing.Size(1475, 674);
+            this.UserManageControlPanel1.Size = new System.Drawing.Size(1475, 719);
             this.UserManageControlPanel1.TabIndex = 0;
             // 
             // panelSlidebar
             // 
             this.panelSlidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(137)))));
+            this.panelSlidebar.Controls.Add(this.buttonCategory);
             this.panelSlidebar.Controls.Add(this.buttonLogout);
             this.panelSlidebar.Controls.Add(this.ButtonProfile);
             this.panelSlidebar.Controls.Add(this.buttonDevlopers);
@@ -170,7 +172,7 @@
             this.panelSlidebar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSlidebar.Location = new System.Drawing.Point(3, 92);
             this.panelSlidebar.Name = "panelSlidebar";
-            this.panelSlidebar.Size = new System.Drawing.Size(283, 678);
+            this.panelSlidebar.Size = new System.Drawing.Size(283, 723);
             this.panelSlidebar.TabIndex = 2;
             // 
             // buttonLogout
@@ -183,7 +185,7 @@
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Segoe UI Black", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogout.ForeColor = System.Drawing.Color.White;
-            this.buttonLogout.Location = new System.Drawing.Point(0, 599);
+            this.buttonLogout.Location = new System.Drawing.Point(0, 637);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(285, 65);
             this.buttonLogout.TabIndex = 16;
@@ -202,7 +204,7 @@
             this.ButtonProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ButtonProfile.Image = ((System.Drawing.Image)(resources.GetObject("ButtonProfile.Image")));
             this.ButtonProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ButtonProfile.Location = new System.Drawing.Point(0, 499);
+            this.ButtonProfile.Location = new System.Drawing.Point(0, 565);
             this.ButtonProfile.Name = "ButtonProfile";
             this.ButtonProfile.Size = new System.Drawing.Size(285, 59);
             this.ButtonProfile.TabIndex = 15;
@@ -222,7 +224,7 @@
             this.buttonDevlopers.ForeColor = System.Drawing.Color.LightGray;
             this.buttonDevlopers.Image = ((System.Drawing.Image)(resources.GetObject("buttonDevlopers.Image")));
             this.buttonDevlopers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDevlopers.Location = new System.Drawing.Point(0, 434);
+            this.buttonDevlopers.Location = new System.Drawing.Point(0, 492);
             this.buttonDevlopers.Name = "buttonDevlopers";
             this.buttonDevlopers.Size = new System.Drawing.Size(280, 48);
             this.buttonDevlopers.TabIndex = 9;
@@ -242,7 +244,7 @@
             this.ButtonUsersInfo.ForeColor = System.Drawing.Color.LightGray;
             this.ButtonUsersInfo.Image = ((System.Drawing.Image)(resources.GetObject("ButtonUsersInfo.Image")));
             this.ButtonUsersInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ButtonUsersInfo.Location = new System.Drawing.Point(3, 369);
+            this.ButtonUsersInfo.Location = new System.Drawing.Point(3, 428);
             this.ButtonUsersInfo.Name = "ButtonUsersInfo";
             this.ButtonUsersInfo.Size = new System.Drawing.Size(277, 48);
             this.ButtonUsersInfo.TabIndex = 8;
@@ -263,7 +265,7 @@
             this.buttonTransactions.ForeColor = System.Drawing.Color.LightGray;
             this.buttonTransactions.Image = ((System.Drawing.Image)(resources.GetObject("buttonTransactions.Image")));
             this.buttonTransactions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonTransactions.Location = new System.Drawing.Point(0, 304);
+            this.buttonTransactions.Location = new System.Drawing.Point(1, 364);
             this.buttonTransactions.Name = "buttonTransactions";
             this.buttonTransactions.Size = new System.Drawing.Size(280, 48);
             this.buttonTransactions.TabIndex = 7;
@@ -283,7 +285,7 @@
             this.buttonOurProjectsControlPortal.ForeColor = System.Drawing.Color.LightGray;
             this.buttonOurProjectsControlPortal.Image = ((System.Drawing.Image)(resources.GetObject("buttonOurProjectsControlPortal.Image")));
             this.buttonOurProjectsControlPortal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOurProjectsControlPortal.Location = new System.Drawing.Point(0, 239);
+            this.buttonOurProjectsControlPortal.Location = new System.Drawing.Point(0, 236);
             this.buttonOurProjectsControlPortal.Name = "buttonOurProjectsControlPortal";
             this.buttonOurProjectsControlPortal.Size = new System.Drawing.Size(285, 48);
             this.buttonOurProjectsControlPortal.TabIndex = 6;
@@ -304,7 +306,7 @@
             this.buttonOurResponsesControlPortal.ForeColor = System.Drawing.Color.LightGray;
             this.buttonOurResponsesControlPortal.Image = ((System.Drawing.Image)(resources.GetObject("buttonOurResponsesControlPortal.Image")));
             this.buttonOurResponsesControlPortal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOurResponsesControlPortal.Location = new System.Drawing.Point(-9, 174);
+            this.buttonOurResponsesControlPortal.Location = new System.Drawing.Point(-9, 172);
             this.buttonOurResponsesControlPortal.Name = "buttonOurResponsesControlPortal";
             this.buttonOurResponsesControlPortal.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonOurResponsesControlPortal.Size = new System.Drawing.Size(292, 48);
@@ -326,7 +328,7 @@
             this.buttonProjectBoardControlPortal.ForeColor = System.Drawing.Color.LightGray;
             this.buttonProjectBoardControlPortal.Image = ((System.Drawing.Image)(resources.GetObject("buttonProjectBoardControlPortal.Image")));
             this.buttonProjectBoardControlPortal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonProjectBoardControlPortal.Location = new System.Drawing.Point(-9, 109);
+            this.buttonProjectBoardControlPortal.Location = new System.Drawing.Point(-9, 108);
             this.buttonProjectBoardControlPortal.Name = "buttonProjectBoardControlPortal";
             this.buttonProjectBoardControlPortal.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonProjectBoardControlPortal.Size = new System.Drawing.Size(293, 48);
@@ -348,7 +350,7 @@
             this.buttonDashboardControlPortal.ForeColor = System.Drawing.Color.LightGray;
             this.buttonDashboardControlPortal.Image = ((System.Drawing.Image)(resources.GetObject("buttonDashboardControlPortal.Image")));
             this.buttonDashboardControlPortal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDashboardControlPortal.Location = new System.Drawing.Point(-9, 33);
+            this.buttonDashboardControlPortal.Location = new System.Drawing.Point(-10, 33);
             this.buttonDashboardControlPortal.Name = "buttonDashboardControlPortal";
             this.buttonDashboardControlPortal.Size = new System.Drawing.Size(293, 59);
             this.buttonDashboardControlPortal.TabIndex = 3;
@@ -387,11 +389,32 @@
             this.labelTitleControlPortal.TabIndex = 3;
             this.labelTitleControlPortal.Text = "IdeaBid";
             // 
+            // buttonCategory
+            // 
+            this.buttonCategory.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCategory.FlatAppearance.BorderSize = 0;
+            this.buttonCategory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.buttonCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.buttonCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCategory.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonCategory.Image = ((System.Drawing.Image)(resources.GetObject("buttonCategory.Image")));
+            this.buttonCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCategory.Location = new System.Drawing.Point(-8, 300);
+            this.buttonCategory.Name = "buttonCategory";
+            this.buttonCategory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonCategory.Size = new System.Drawing.Size(293, 48);
+            this.buttonCategory.TabIndex = 17;
+            this.buttonCategory.Text = "  Category";
+            this.buttonCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonCategory.UseVisualStyleBackColor = false;
+            // 
             // FormControlPortal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1774, 773);
+            this.ClientSize = new System.Drawing.Size(1774, 818);
             this.Controls.Add(this.tableLayoutPanelControlPortal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormControlPortal";
@@ -433,5 +456,6 @@
         private UserControlOurResponses userControlOurResponses;
         private System.Windows.Forms.Button ButtonProfile;
         private System.Windows.Forms.Button buttonLogout;
+        private System.Windows.Forms.Button buttonCategory;
     }
 }

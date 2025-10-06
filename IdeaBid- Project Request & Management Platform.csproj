@@ -128,6 +128,10 @@
     <Compile Include="GUI\UserControlPublicProjects.Designer.cs">
       <DependentUpon>UserControlPublicProjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UserControlUserProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControlUserProfile.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\UserControlProjectRequestFromUser.cs">
@@ -172,6 +176,7 @@
     <EmbeddedResource Include="GUI\UserControlPublicProjects.resx">
       <DependentUpon>UserControlPublicProjects.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControlUserProfile.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

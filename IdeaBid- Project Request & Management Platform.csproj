@@ -56,12 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseConnection\DataBase.cs" />
-    <Compile Include="Dusbin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dusbin.Designer.cs">
-      <DependentUpon>Dusbin.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\FormNewResponed.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,12 +74,6 @@
     <Compile Include="GUI\NewProjectForm.Designer.cs">
       <DependentUpon>NewProjectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\TestForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\TestForm.Designer.cs">
-      <DependentUpon>TestForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\UserControl-UserManageControlPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,12 +86,6 @@
     <Compile Include="GUI\FormControlPortal.Designer.cs">
       <DependentUpon>FormControlPortal.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FormControlPortal2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormControlPortal2.Designer.cs">
-      <DependentUpon>FormControlPortal2.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,18 +97,6 @@
     </Compile>
     <Compile Include="GUI\FormUserDashboard.Designer.cs">
       <DependentUpon>FormUserDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\UserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\UserControl.Designer.cs">
-      <DependentUpon>UserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\UserControlCategory.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\UserControlCategory.Designer.cs">
-      <DependentUpon>UserControlCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserControlDashboardControlPanel.cs">
       <SubType>UserControl</SubType>
@@ -158,35 +128,18 @@
     <Compile Include="GUI\UserControlPublicProjects.Designer.cs">
       <DependentUpon>UserControlPublicProjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UserControlUserProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControlUserProfile.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GUI\UserDashboard2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\UserDashboard2.Designer.cs">
-      <DependentUpon>UserDashboard2.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\UserControlProjectRequestFromUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\UserControlProjectRequestFromUser.Designer.cs">
       <DependentUpon>UserControlProjectRequestFromUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ref.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ref.Designer.cs">
-      <DependentUpon>Ref.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Dusbin.resx">
-      <DependentUpon>Dusbin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNewResponed.resx">
       <DependentUpon>FormNewResponed.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,29 +149,17 @@
     <EmbeddedResource Include="GUI\NewProjectForm.resx">
       <DependentUpon>NewProjectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\TestForm.resx">
-      <DependentUpon>TestForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserControl-UserManageControlPanel.resx">
       <DependentUpon>UserControl-UserManageControlPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormControlPortal.resx">
       <DependentUpon>FormControlPortal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FormControlPortal2.resx">
-      <DependentUpon>FormControlPortal2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormUserDashboard.resx">
       <DependentUpon>FormUserDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UserControl.resx">
-      <DependentUpon>UserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UserControlCategory.resx">
-      <DependentUpon>UserControlCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserControlDashboardControlPanel.resx">
       <DependentUpon>UserControlDashboardControlPanel.cs</DependentUpon>
@@ -235,6 +176,7 @@
     <EmbeddedResource Include="GUI\UserControlPublicProjects.resx">
       <DependentUpon>UserControlPublicProjects.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControlUserProfile.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -245,17 +187,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="GUI\UserDashboard2.resx">
-      <DependentUpon>UserDashboard2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserControlProjectRequestFromUser.resx">
       <DependentUpon>UserControlProjectRequestFromUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ref.resx">
-      <DependentUpon>Ref.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

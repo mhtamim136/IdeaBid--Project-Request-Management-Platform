@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace IdeaBid__Project_Request___Management_Platform.GUI
 {
@@ -224,6 +225,14 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 return;
             }
 
+            var (uExists, eExists) = DataBase.CheckUsernameOrEmailExists(userName, email);
+            if (uExists || eExists)
+            {
+                MessageBox.Show("Username or email already exists.", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
 
             //var (userExists, emailExists) = CheckUsernameOrEmailExists(userName, email);
             //if (userExists || emailExists)
@@ -236,7 +245,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             //}
 
 
-            
+
 
 
 

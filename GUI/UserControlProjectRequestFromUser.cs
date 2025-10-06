@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace IdeaBid__Project_Request___Management_Platform.GUI
 {
-    public partial class UserControlProjectRequestFromUser : UserControlTest
+    public partial class UserControlProjectRequestFromUser : UserControl
     {
         public int currentUserId;
         public UserControlProjectRequestFromUser()

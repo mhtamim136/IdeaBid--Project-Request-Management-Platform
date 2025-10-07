@@ -48,7 +48,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 $"👤 Welcome, {CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fullName.ToLower())}  |  Role: {Role}";
 
 
-            // Role-Based UI Adjustments
+            // Role-Based UI
             if (Role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
             {
                 this.ButtonProfile.Visible= false;
@@ -59,8 +59,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 buttonDevlopers.Visible = false;
                 ButtonUsersInfo.Visible = false;
                 buttonTransactions.Visible = false;
-
-
             }
         }
 
@@ -136,8 +134,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         //Logout Button Method
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-
-
             isLogoutClicked = true;
 
             if (this.Owner != null && this.Owner is FormLogin loginForm)
@@ -204,5 +200,25 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             userControlOurResponses.BringToFront();
         }
 
+        private void buttonCategory_Click(object sender, EventArgs e)
+        {
+            ActivateButton(buttonCategory);
+
+        }
+
+        private void buttonTransactions_Click(object sender, EventArgs e)
+        {
+            ActivateButton(buttonTransactions);
+        }
+
+        private void buttonDevlopers_Click(object sender, EventArgs e)
+        {
+            ActivateButton(buttonDevlopers);
+        }
+
+        private void ButtonProfile_Click(object sender, EventArgs e)
+        {
+            ActivateButton(ButtonProfile);
+        }
     }
 }

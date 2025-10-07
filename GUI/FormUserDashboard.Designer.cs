@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUserDashboard));
             this.panelDisplay = new System.Windows.Forms.Panel();
+            this.userControlPublicProjects = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlPublicProjects();
+            this.userControlProjectRequestFormUser = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlProjectRequestFromUser();
             this.tableLayoutPanelControlPortal = new System.Windows.Forms.TableLayoutPanel();
             this.panelTopLabel = new System.Windows.Forms.Panel();
             this.labelUserDashboard = new System.Windows.Forms.Label();
@@ -43,8 +45,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelTitleControlPortal = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.userControlPublicProjects = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlPublicProjects();
-            this.userControlProjectRequestFormUser = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlProjectRequestFromUser();
             this.userControlProjectRequestFromUser1 = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlProjectRequestFromUser();
             this.panelDisplay.SuspendLayout();
             this.tableLayoutPanelControlPortal.SuspendLayout();
@@ -63,6 +63,23 @@
             this.panelDisplay.Name = "panelDisplay";
             this.panelDisplay.Size = new System.Drawing.Size(1404, 665);
             this.panelDisplay.TabIndex = 3;
+            // 
+            // userControlPublicProjects
+            // 
+            this.userControlPublicProjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlPublicProjects.Location = new System.Drawing.Point(0, 0);
+            this.userControlPublicProjects.Name = "userControlPublicProjects";
+            this.userControlPublicProjects.Size = new System.Drawing.Size(1400, 661);
+            this.userControlPublicProjects.TabIndex = 1;
+            // 
+            // userControlProjectRequestFormUser
+            // 
+            this.userControlProjectRequestFormUser.BackColor = System.Drawing.Color.Red;
+            this.userControlProjectRequestFormUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlProjectRequestFormUser.Location = new System.Drawing.Point(0, 0);
+            this.userControlProjectRequestFormUser.Name = "userControlProjectRequestFormUser";
+            this.userControlProjectRequestFormUser.Size = new System.Drawing.Size(1400, 661);
+            this.userControlProjectRequestFormUser.TabIndex = 0;
             // 
             // tableLayoutPanelControlPortal
             // 
@@ -176,6 +193,7 @@
             this.buttonPayment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonPayment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonPayment.UseVisualStyleBackColor = false;
+            this.buttonPayment.Click += new System.EventHandler(this.buttonPayment_Click);
             // 
             // buttonPublicProjeect
             // 
@@ -239,6 +257,7 @@
             this.buttonDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonDashboard.UseVisualStyleBackColor = false;
+            this.buttonDashboard.Click += new System.EventHandler(this.buttonDashboard_Click);
             // 
             // panel1
             // 
@@ -269,24 +288,6 @@
             this.labelTitle.TabIndex = 3;
             this.labelTitle.Text = "IdeaBid";
             // 
-            // userControlPublicProjects
-            // 
-            this.userControlPublicProjects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlPublicProjects.Location = new System.Drawing.Point(0, 0);
-            this.userControlPublicProjects.Name = "userControlPublicProjects";
-            this.userControlPublicProjects.Size = new System.Drawing.Size(1400, 661);
-            this.userControlPublicProjects.TabIndex = 1;
-            // 
-            // userControlProjectRequestFormUser
-            // 
-            this.userControlProjectRequestFormUser.BackColor = System.Drawing.Color.Red;
-            this.userControlProjectRequestFormUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlProjectRequestFormUser.Location = new System.Drawing.Point(0, 0);
-            this.userControlProjectRequestFormUser.Name = "userControlProjectRequestFormUser";
-            this.userControlProjectRequestFormUser.Size = new System.Drawing.Size(1400, 661);
-            this.userControlProjectRequestFormUser.TabIndex = 0;
-            this.userControlProjectRequestFormUser.Load += new System.EventHandler(this.userControlProjectRequestFormUser_Load);
-            // 
             // userControlProjectRequestFromUser1
             // 
             this.userControlProjectRequestFromUser1.BackColor = System.Drawing.Color.Red;
@@ -295,8 +296,6 @@
             this.userControlProjectRequestFromUser1.Name = "userControlProjectRequestFromUser1";
             this.userControlProjectRequestFromUser1.Size = new System.Drawing.Size(1486, 661);
             this.userControlProjectRequestFromUser1.TabIndex = 0;
-            // 
-
             // 
             // FormUserDashboard
             // 

@@ -36,12 +36,12 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
             if (!string.IsNullOrWhiteSpace(search))
             {
+                search = search.Replace("'", "''");
 
                 query += $@"
             AND (
                 pr.Title LIKE '%{search}%'
                 OR c.CategoryName LIKE '%{search}%'
-                OR pr.BudgetOffered LIKE '%{search}%'
             )";
             }
 
@@ -63,6 +63,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
+            textBoxSearch.Clear();
             this.LoadOurProjects();
 
         }
@@ -76,6 +77,17 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         {
             this.LoadOurProjects(textBoxSearch.Text.Trim());
         }
+
+        private void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true; 
+                e.SuppressKeyPress = true; 
+                this.LoadOurProjects(textBoxSearch.Text.Trim());
+            }
+        }
+
 
         private void metroGridPublicProjects_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {

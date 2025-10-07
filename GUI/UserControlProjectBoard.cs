@@ -20,7 +20,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         }
 
 
-
         public void LoadRequests(string search = null)
         {
             string sql = @"
@@ -43,7 +42,8 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
             if (!string.IsNullOrWhiteSpace(search))
             {
-                // if user typed number, search by ID too
+                search = search.Replace("'", "''");
+
                 if (int.TryParse(search, out int idSearch))
                 {
                     sql += $@"
@@ -102,6 +102,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
+            textBoxSearch.Clear();
             this.LoadRequests();
         }
 
@@ -109,6 +110,18 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         {
             this.LoadRequests(textBoxSearch.Text.Trim());
         }
+
+        private void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                this.LoadRequests(textBoxSearch.Text.Trim());
+            }
+        }
+
+
 
         private void dataGridViewProjectBoard_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {

@@ -31,8 +31,8 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             pr.ProposalAmount,
             pr.Deadline,
             pr.Feedback,
-            pr.StatusID,        -- keep the ID for reference if needed
-            s.StatusName        -- show name in grid
+            pr.StatusID,        
+            s.StatusName       
         FROM ProjectResponse pr
         LEFT JOIN ProjectStatus s ON pr.StatusID = s.StatusID
         WHERE 1=1
@@ -40,11 +40,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
             if (!string.IsNullOrWhiteSpace(search))
             {
-                //    sql += $@"
-                //AND (
-                //    CAST(pr.RequestID AS NVARCHAR(50)) LIKE '%{search}%'
-                //    OR CAST(pr.ResponseID AS NVARCHAR(50)) LIKE '%{search}%'
-                //)";
 
                 if (int.TryParse(search, out int searchId))
                 {
@@ -66,10 +61,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             metroGridDisplayResponses.ClearSelection();
         }
 
-
-
-
-
         private void UserControlOurResponses_Load(object sender, EventArgs e)
         {
             this.LoadOurResponses();
@@ -78,6 +69,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
+            textBoxSearch.Clear();
             this.LoadOurResponses();
         }
 
@@ -85,6 +77,17 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         {
             this.LoadOurResponses(textBoxSearch.Text.Trim());
         }
+
+        private void TextBoxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;  
+                e.SuppressKeyPress = true; 
+                this.LoadOurResponses(textBoxSearch.Text.Trim());
+            }
+        }
+
 
         private void metroGridDisplayResponses_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
@@ -109,9 +112,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 }
             }
         }
-
-
-
 
 
     }

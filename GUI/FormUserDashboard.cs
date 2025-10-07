@@ -23,12 +23,12 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         public FormUserDashboard()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
 
         public FormUserDashboard(string username) : this()
         {
-            InitializeComponent();
+            //InitializeComponent();
             LoggedInUser = username;
             object userIdResult = DataBase.ExecuteScalar(
                 $"SELECT TOP 1 ID FROM UserInfo WHERE UserName = '{username}'"
@@ -151,8 +151,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             userControlProjectRequestFormUser.LoadRequests(CurrentUserId);
 
             userControlProjectRequestFormUser.BringToFront();
-
-
         }
 
         private void ButtonProfile_Click(object sender, EventArgs e)
@@ -170,19 +168,24 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             userControlProjectRequestFormUser.LoadRequests(CurrentUserId);
 
             userControlProjectRequestFormUser.BringToFront();
-
         }
 
-        private void userControlProjectRequestFormUser_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonPublicProjeect_Click(object sender, EventArgs e)
         {
             ActivateButton(buttonPublicProjeect);
             userControlPublicProjects.LoadOurProjects();
             userControlPublicProjects.BringToFront();
+        }
+
+        private void buttonDashboard_Click(object sender, EventArgs e)
+        {
+            ActivateButton(buttonDashboard);
+        }
+
+        private void buttonPayment_Click(object sender, EventArgs e)
+        {
+            ActivateButton(buttonPayment);
         }
     }
 }

@@ -107,7 +107,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             string languages = string.IsNullOrWhiteSpace(textBoxLanguages.Text) ? null : textBoxLanguages.Text.Trim();
             string title = textBoxTitle.Text.Trim();
             string description = textBoxDescribe.Text.Trim();
-            //decimal? budget = decimal.TryParse(textBoxBudget.Text, out decimal b) ? b : (decimal?)null;
             decimal? budget = null;
 
             if (!string.IsNullOrWhiteSpace(textBoxBudget.Text))
@@ -120,11 +119,17 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 {
                     MessageBox.Show("Please enter a valid number for Budget.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     textBoxBudget.Focus();
-                    return; // stop saving
+                    return; 
                 }
             }
 
             DateTime? deadline = metroDateTimeDeadLIne.Checked ? metroDateTimeDeadLIne.Value : (DateTime?)null;
+
+            // Escape single quotes
+            title = title.Replace("'", "''");
+            description = description.Replace("'", "''");
+            languages = languages?.Replace("'", "''");
+
 
             try
             {

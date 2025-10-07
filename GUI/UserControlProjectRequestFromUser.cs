@@ -42,6 +42,8 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
             if (!string.IsNullOrWhiteSpace(search))
             {
+                 search = search.Replace("'", "''");
+
                 if (int.TryParse(search, out int idSearch))
                 {
                     sql += $@"
@@ -69,8 +71,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             metroGridForRequestProject.ClearSelection();
         }
 
-
-
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
             textBoxSearch.Clear();
@@ -81,6 +81,16 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private void buttonSearch_Click_1(object sender, EventArgs e)
         {
             LoadRequests(currentUserId, textBoxSearch.Text.Trim());
+        }
+
+        private void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;  
+                e.SuppressKeyPress = true; 
+                LoadRequests(currentUserId, textBoxSearch.Text.Trim());
+            }
         }
 
         private void buttonNewRequest_Click(object sender, EventArgs e)
@@ -115,17 +125,14 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 return;
             }
 
-            // Get the RequestID of the selected row
             int requestId = Convert.ToInt32(metroGridForRequestProject.SelectedRows[0].Cells["dgvRequestId"].Value);
 
-            // Confirm deletion
             DialogResult dr = MessageBox.Show($"Are you sure you want to delete request ID {requestId}?",
                                               "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr != DialogResult.Yes) return;
 
             try
             {
-                // Delete from database
                 string sql = $"DELETE FROM ProjectRequest WHERE RequestID = {requestId}";
                 int affected = DataBase.ExecuteNonQuery(sql);
 
@@ -134,7 +141,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 {
                     LoadRequests(currentUserId);
                     MessageBox.Show("Request deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Refresh grid
                     
                 }
                 else
@@ -160,7 +166,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             int requestId = Convert.ToInt32(
                 metroGridForRequestProject.SelectedRows[0].Cells["dgvRequestId"].Value
             );
-
 
 
             using (var formViewResponse = new FormViewResponse(requestId))

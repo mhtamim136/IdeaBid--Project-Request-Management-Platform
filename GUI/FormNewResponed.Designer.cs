@@ -56,7 +56,7 @@
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClear.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClear.ForeColor = System.Drawing.Color.Black;
-            this.buttonClear.Location = new System.Drawing.Point(36, 731);
+            this.buttonClear.Location = new System.Drawing.Point(36, 649);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(141, 50);
             this.buttonClear.TabIndex = 24;
@@ -68,10 +68,12 @@
             // 
             this.buttonCancel.BackColor = System.Drawing.Color.Red;
             this.buttonCancel.FlatAppearance.BorderSize = 0;
+            this.buttonCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonCancel.Location = new System.Drawing.Point(343, 731);
+            this.buttonCancel.Location = new System.Drawing.Point(343, 649);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(141, 50);
             this.buttonCancel.TabIndex = 23;
@@ -83,10 +85,12 @@
             // 
             this.buttonSend.BackColor = System.Drawing.Color.Teal;
             this.buttonSend.FlatAppearance.BorderSize = 0;
+            this.buttonSend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.buttonSend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.buttonSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSend.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSend.ForeColor = System.Drawing.Color.White;
-            this.buttonSend.Location = new System.Drawing.Point(539, 731);
+            this.buttonSend.Location = new System.Drawing.Point(539, 649);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(141, 50);
             this.buttonSend.TabIndex = 22;
@@ -97,8 +101,9 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
+            this.labelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(221, 17);
+            this.labelTitle.Location = new System.Drawing.Point(227, 17);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(256, 45);
             this.labelTitle.TabIndex = 25;
@@ -148,7 +153,7 @@
             // 
             this.labelStatus.AutoSize = true;
             this.labelStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStatus.Location = new System.Drawing.Point(35, 523);
+            this.labelStatus.Location = new System.Drawing.Point(35, 529);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(77, 31);
             this.labelStatus.TabIndex = 30;
@@ -220,7 +225,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 836);
+            this.ClientSize = new System.Drawing.Size(735, 735);
             this.Controls.Add(this.textBoxRequestID);
             this.Controls.Add(this.labelRequestID);
             this.Controls.Add(this.comboBoxStatus);

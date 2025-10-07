@@ -74,11 +74,11 @@
             // 
             this.textBoxRequestID.BackColor = System.Drawing.Color.White;
             this.textBoxRequestID.Enabled = false;
-            this.textBoxRequestID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRequestID.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRequestID.Location = new System.Drawing.Point(182, 116);
             this.textBoxRequestID.Name = "textBoxRequestID";
             this.textBoxRequestID.ReadOnly = true;
-            this.textBoxRequestID.Size = new System.Drawing.Size(449, 34);
+            this.textBoxRequestID.Size = new System.Drawing.Size(449, 36);
             this.textBoxRequestID.TabIndex = 2;
             // 
             // labelCategory
@@ -104,11 +104,11 @@
             // textBoxTitle
             // 
             this.textBoxTitle.BackColor = System.Drawing.Color.White;
-            this.textBoxTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTitle.Location = new System.Drawing.Point(182, 387);
             this.textBoxTitle.Multiline = true;
             this.textBoxTitle.Name = "textBoxTitle";
-            this.textBoxTitle.Size = new System.Drawing.Size(449, 44);
+            this.textBoxTitle.Size = new System.Drawing.Size(449, 38);
             this.textBoxTitle.TabIndex = 8;
             // 
             // labelTitle
@@ -124,7 +124,7 @@
             // textBoxDescribe
             // 
             this.textBoxDescribe.BackColor = System.Drawing.Color.White;
-            this.textBoxDescribe.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDescribe.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDescribe.Location = new System.Drawing.Point(182, 465);
             this.textBoxDescribe.Multiline = true;
             this.textBoxDescribe.Name = "textBoxDescribe";
@@ -144,10 +144,10 @@
             // textBoxBudget
             // 
             this.textBoxBudget.BackColor = System.Drawing.Color.White;
-            this.textBoxBudget.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBudget.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBudget.Location = new System.Drawing.Point(182, 600);
             this.textBoxBudget.Name = "textBoxBudget";
-            this.textBoxBudget.Size = new System.Drawing.Size(449, 34);
+            this.textBoxBudget.Size = new System.Drawing.Size(449, 36);
             this.textBoxBudget.TabIndex = 12;
             // 
             // labelBudget
@@ -163,11 +163,11 @@
             // comboBoxCategory
             // 
             this.comboBoxCategory.BackColor = System.Drawing.Color.White;
-            this.comboBoxCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategory.FormattingEnabled = true;
             this.comboBoxCategory.Location = new System.Drawing.Point(182, 194);
             this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(449, 36);
+            this.comboBoxCategory.Size = new System.Drawing.Size(449, 38);
             this.comboBoxCategory.TabIndex = 13;
             // 
             // buttonSave
@@ -197,6 +197,8 @@
             // 
             // metroDateTimeDeadLIne
             // 
+            this.metroDateTimeDeadLIne.CustomFormat = "dddd, MMM dd yyyy";
+            this.metroDateTimeDeadLIne.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.metroDateTimeDeadLIne.Location = new System.Drawing.Point(182, 686);
             this.metroDateTimeDeadLIne.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTimeDeadLIne.Name = "metroDateTimeDeadLIne";
@@ -206,7 +208,7 @@
             // textBoxLanguages
             // 
             this.textBoxLanguages.BackColor = System.Drawing.Color.White;
-            this.textBoxLanguages.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLanguages.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLanguages.Location = new System.Drawing.Point(182, 281);
             this.textBoxLanguages.Multiline = true;
             this.textBoxLanguages.Name = "textBoxLanguages";

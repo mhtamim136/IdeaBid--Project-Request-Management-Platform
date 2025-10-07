@@ -88,6 +88,10 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
             int statusId = Convert.ToInt32(comboBoxStatus.SelectedValue);
             string feedback = string.IsNullOrWhiteSpace(textBoxFeedback.Text) ? null : textBoxFeedback.Text.Trim();
+            if (!string.IsNullOrEmpty(feedback))
+            {
+                feedback = feedback.Replace("'", "''"); 
+            }
             decimal? proposalAmount = null;
 
             if (!string.IsNullOrWhiteSpace(textBoxProposalAmount.Text))
@@ -112,7 +116,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
             try
             {
-                // ✅ Insert into ProjectResponse
                 string insertSql = $@"
                                 INSERT INTO ProjectResponse 
                                     (RequestID, DevID, AdminID, ProposalDate, ProposalAmount, Deadline, Feedback, StatusID)

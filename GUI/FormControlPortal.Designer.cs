@@ -38,6 +38,7 @@
             this.userControlOurProjects = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlOurProjects();
             this.UserManageControlPanel1 = new IdeaBid__Project_Request___Management_Platform.UserControlUserManageControlPanel();
             this.panelSlidebar = new System.Windows.Forms.Panel();
+            this.buttonCategory = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.ButtonProfile = new System.Windows.Forms.Button();
             this.buttonDevlopers = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelTitleControlPortal = new System.Windows.Forms.Panel();
             this.labelTitleControlPortal = new System.Windows.Forms.Label();
-            this.buttonCategory = new System.Windows.Forms.Button();
             this.tableLayoutPanelControlPortal.SuspendLayout();
             this.panelTopLabelControlPortal.SuspendLayout();
             this.panelDisplayControlPortal.SuspendLayout();
@@ -135,8 +135,6 @@
             this.userControlOurProjects.Size = new System.Drawing.Size(1475, 719);
             this.userControlOurProjects.TabIndex = 2;
             // 
-
-            // 
             // UserManageControlPanel1
             // 
             this.UserManageControlPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -165,6 +163,28 @@
             this.panelSlidebar.Name = "panelSlidebar";
             this.panelSlidebar.Size = new System.Drawing.Size(283, 723);
             this.panelSlidebar.TabIndex = 2;
+            // 
+            // buttonCategory
+            // 
+            this.buttonCategory.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCategory.FlatAppearance.BorderSize = 0;
+            this.buttonCategory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.buttonCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.buttonCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCategory.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonCategory.Image = ((System.Drawing.Image)(resources.GetObject("buttonCategory.Image")));
+            this.buttonCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCategory.Location = new System.Drawing.Point(-8, 300);
+            this.buttonCategory.Name = "buttonCategory";
+            this.buttonCategory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonCategory.Size = new System.Drawing.Size(293, 48);
+            this.buttonCategory.TabIndex = 17;
+            this.buttonCategory.Text = "  Category";
+            this.buttonCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonCategory.UseVisualStyleBackColor = false;
+            this.buttonCategory.Click += new System.EventHandler(this.buttonCategory_Click);
             // 
             // buttonLogout
             // 
@@ -203,6 +223,7 @@
             this.ButtonProfile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ButtonProfile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ButtonProfile.UseVisualStyleBackColor = false;
+            this.ButtonProfile.Click += new System.EventHandler(this.ButtonProfile_Click);
             // 
             // buttonDevlopers
             // 
@@ -223,6 +244,7 @@
             this.buttonDevlopers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDevlopers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonDevlopers.UseVisualStyleBackColor = false;
+            this.buttonDevlopers.Click += new System.EventHandler(this.buttonDevlopers_Click);
             // 
             // ButtonUsersInfo
             // 
@@ -264,6 +286,7 @@
             this.buttonTransactions.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonTransactions.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonTransactions.UseVisualStyleBackColor = false;
+            this.buttonTransactions.Click += new System.EventHandler(this.buttonTransactions_Click);
             // 
             // buttonOurProjectsControlPortal
             // 
@@ -379,27 +402,6 @@
             this.labelTitleControlPortal.Size = new System.Drawing.Size(184, 57);
             this.labelTitleControlPortal.TabIndex = 3;
             this.labelTitleControlPortal.Text = "IdeaBid";
-            // 
-            // buttonCategory
-            // 
-            this.buttonCategory.BackColor = System.Drawing.Color.Transparent;
-            this.buttonCategory.FlatAppearance.BorderSize = 0;
-            this.buttonCategory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.buttonCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
-            this.buttonCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCategory.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonCategory.Image = ((System.Drawing.Image)(resources.GetObject("buttonCategory.Image")));
-            this.buttonCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCategory.Location = new System.Drawing.Point(-8, 300);
-            this.buttonCategory.Name = "buttonCategory";
-            this.buttonCategory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonCategory.Size = new System.Drawing.Size(293, 48);
-            this.buttonCategory.TabIndex = 17;
-            this.buttonCategory.Text = "  Category";
-            this.buttonCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonCategory.UseVisualStyleBackColor = false;
             // 
             // FormControlPortal
             // 

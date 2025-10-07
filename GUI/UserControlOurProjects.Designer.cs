@@ -82,11 +82,14 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(546, 41);
             this.textBoxSearch.TabIndex = 2;
+            this.textBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxSearch_KeyDown);
             // 
             // buttonSearch
             // 
             this.buttonSearch.BackColor = System.Drawing.Color.Transparent;
             this.buttonSearch.FlatAppearance.BorderSize = 0;
+            this.buttonSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.buttonSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearch.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSearch.ForeColor = System.Drawing.Color.Black;
@@ -103,6 +106,8 @@
             // 
             this.buttonRefresh.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttonRefresh.FlatAppearance.BorderSize = 0;
+            this.buttonRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.buttonRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
             this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRefresh.Location = new System.Drawing.Point(17, 8);

@@ -94,6 +94,7 @@
             // 
             this.labelShowResponderName.AutoSize = true;
             this.labelShowResponderName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelShowResponderName.ForeColor = System.Drawing.Color.Red;
             this.labelShowResponderName.Location = new System.Drawing.Point(365, 155);
             this.labelShowResponderName.Name = "labelShowResponderName";
             this.labelShowResponderName.Size = new System.Drawing.Size(263, 31);
@@ -115,6 +116,7 @@
             // 
             this.Responsedate.AutoSize = true;
             this.Responsedate.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Responsedate.ForeColor = System.Drawing.Color.Red;
             this.Responsedate.Location = new System.Drawing.Point(365, 233);
             this.Responsedate.Name = "Responsedate";
             this.Responsedate.Size = new System.Drawing.Size(165, 31);
@@ -136,6 +138,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(365, 311);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(165, 31);
@@ -157,6 +160,7 @@
             // 
             this.labelExpectedDeadline.AutoSize = true;
             this.labelExpectedDeadline.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelExpectedDeadline.ForeColor = System.Drawing.Color.Red;
             this.labelExpectedDeadline.Location = new System.Drawing.Point(365, 389);
             this.labelExpectedDeadline.Name = "labelExpectedDeadline";
             this.labelExpectedDeadline.Size = new System.Drawing.Size(105, 31);
@@ -178,6 +182,7 @@
             // 
             this.labelStatus.AutoSize = true;
             this.labelStatus.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStatus.ForeColor = System.Drawing.Color.Red;
             this.labelStatus.Location = new System.Drawing.Point(365, 467);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(76, 31);
@@ -207,6 +212,9 @@
             // buttonOkay
             // 
             this.buttonOkay.BackColor = System.Drawing.Color.Teal;
+            this.buttonOkay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.buttonOkay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.buttonOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOkay.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOkay.ForeColor = System.Drawing.Color.White;
             this.buttonOkay.Location = new System.Drawing.Point(599, 648);
@@ -220,6 +228,9 @@
             // buttonModifyRequest
             // 
             this.buttonModifyRequest.BackColor = System.Drawing.Color.Red;
+            this.buttonModifyRequest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.buttonModifyRequest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.buttonModifyRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonModifyRequest.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonModifyRequest.ForeColor = System.Drawing.Color.White;
             this.buttonModifyRequest.Location = new System.Drawing.Point(267, 648);
@@ -232,6 +243,9 @@
             // 
             // buttonRefresh
             // 
+            this.buttonRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.buttonRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRefresh.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRefresh.Location = new System.Drawing.Point(30, 648);
             this.buttonRefresh.Name = "buttonRefresh";
@@ -389,7 +403,7 @@
             this.MaximizeBox = false;
             this.Name = "FormViewResponse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormViewResponse";
+            this.Text = "ViewResponse";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormViewResponse_FormClosing);
             this.Load += new System.EventHandler(this.FormViewResponse_Load);
             this.metroPanel1.ResumeLayout(false);

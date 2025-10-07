@@ -35,11 +35,17 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
     ";
             if (!string.IsNullOrWhiteSpace(search))
             {
-                query += $@"
-            AND (
-                CAST(pr.RequestID AS NVARCHAR(50)) LIKE '%{search}%'
-                OR pr.Title LIKE '%{search}%'
-            )";
+                if (int.TryParse(search, out int requestId))
+                {
+                    // search by RequestID
+                    query += $" AND pr.RequestID = {requestId}";
+                }
+                else
+                {
+                    // search by Title
+                    string escapedSearch = search.Replace("'", "''"); 
+                    query += $" AND pr.Title LIKE '%{escapedSearch}%'";
+                }
             }
 
             query += " ORDER BY pr.RequestID DESC";
@@ -59,6 +65,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
+            textBoxSearch.Clear();
             this.LoadOurProjects();
         }
 
@@ -78,5 +85,16 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             dataGridViewOurProjects.ClearSelection();
             dataGridViewOurProjects.CurrentCell = null;
         }
+
+        private void TextBoxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                this.LoadOurProjects(textBoxSearch.Text.Trim());
+            }
+        }
+
     }
 }

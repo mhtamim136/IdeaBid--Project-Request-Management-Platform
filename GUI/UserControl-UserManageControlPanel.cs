@@ -40,11 +40,20 @@ namespace IdeaBid__Project_Request___Management_Platform
 
             if (!string.IsNullOrWhiteSpace(search))
             {
-                sql += $@" WHERE 
-            CAST(ID AS NVARCHAR) LIKE '%{search}%' OR 
-            UserName LIKE '%{search}%' OR 
-            FullName LIKE '%{search}%' OR 
-            Email LIKE '%{search}%'";
+                if (int.TryParse(search, out int userId))
+                {
+                    // search by ID
+                    sql += $" WHERE ID = {userId}";
+                }
+                else
+                {
+                    // search by username, fullname, or email
+                    string escapedSearch = search.Replace("'", "''"); 
+                    sql += $@" WHERE 
+                     UserName LIKE '%{escapedSearch}%' OR 
+                     FullName LIKE '%{escapedSearch}%' OR 
+                     Email LIKE '%{escapedSearch}%'";
+                }
             }
 
             sql += " ORDER BY ID ASC";
@@ -173,6 +182,13 @@ namespace IdeaBid__Project_Request___Management_Platform
 
                 return;
             }
+
+            // Escape single quotes
+            username = username.Replace("'", "''");
+            fullName = fullName.Replace("'", "''");
+            email = email.Replace("'", "''");
+            password = password.Replace("'", "''");
+            userType = userType.Replace("'", "''"); 
 
             // INSERT OR UPDATE
             if (selectedUserId == null) 

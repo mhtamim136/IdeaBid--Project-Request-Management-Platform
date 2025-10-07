@@ -32,6 +32,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.checkBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.checkBoxVisibleLogin = new System.Windows.Forms.CheckBox();
             this.textBoxPasswordLogin = new System.Windows.Forms.TextBox();
+            this.textBoxUserNameLogin = new System.Windows.Forms.TextBox();
             this.labelPasswordLogin = new System.Windows.Forms.Label();
             this.labelUserNameLogin = new System.Windows.Forms.Label();
             this.buttonSignUpClickLogin = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.labelUserNameSignUp = new System.Windows.Forms.Label();
             this.buttonSignUpClickSignUP = new System.Windows.Forms.Button();
             this.buttonLoginClickSignUP = new System.Windows.Forms.Button();
-            this.textBoxUserNameLogin = new System.Windows.Forms.TextBox();
             this.panelLoginImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLaptopImage)).BeginInit();
             this.panelTitle.SuspendLayout();
@@ -128,9 +128,9 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.panelLogin.Controls.Add(this.labelUserNameLogin);
             this.panelLogin.Controls.Add(this.buttonSignUpClickLogin);
             this.panelLogin.Controls.Add(this.buttonLoginClickLogin);
-            this.panelLogin.Location = new System.Drawing.Point(99, 150);
+            this.panelLogin.Location = new System.Drawing.Point(83, 160);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(665, 500);
+            this.panelLogin.Size = new System.Drawing.Size(665, 511);
             this.panelLogin.TabIndex = 4;
             // 
             // labelInvalidWaringLogin
@@ -182,6 +182,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.checkBoxVisibleLogin.TabIndex = 6;
             this.checkBoxVisibleLogin.Text = "Visible";
             this.checkBoxVisibleLogin.UseVisualStyleBackColor = true;
+            this.checkBoxVisibleLogin.CheckedChanged += new System.EventHandler(this.checkBoxVisibleLogin_CheckedChanged);
             // 
             // textBoxPasswordLogin
             // 
@@ -192,6 +193,15 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.textBoxPasswordLogin.TabIndex = 5;
             this.textBoxPasswordLogin.UseSystemPasswordChar = true;
             this.textBoxPasswordLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
+            // 
+            // textBoxUserNameLogin
+            // 
+            this.textBoxUserNameLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUserNameLogin.Location = new System.Drawing.Point(179, 130);
+            this.textBoxUserNameLogin.Name = "textBoxUserNameLogin";
+            this.textBoxUserNameLogin.Size = new System.Drawing.Size(320, 34);
+            this.textBoxUserNameLogin.TabIndex = 0;
+            this.textBoxUserNameLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
             // 
             // labelPasswordLogin
             // 
@@ -261,7 +271,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.panelSignUp.Controls.Add(this.labelUserNameSignUp);
             this.panelSignUp.Controls.Add(this.buttonSignUpClickSignUP);
             this.panelSignUp.Controls.Add(this.buttonLoginClickSignUP);
-            this.panelSignUp.Location = new System.Drawing.Point(98, 150);
+            this.panelSignUp.Location = new System.Drawing.Point(83, 160);
             this.panelSignUp.Name = "panelSignUp";
             this.panelSignUp.Size = new System.Drawing.Size(665, 521);
             this.panelSignUp.TabIndex = 9;
@@ -276,6 +286,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.checkBoxVisibleSignUp.TabIndex = 16;
             this.checkBoxVisibleSignUp.Text = "Visible";
             this.checkBoxVisibleSignUp.UseVisualStyleBackColor = true;
+            this.checkBoxVisibleSignUp.CheckedChanged += new System.EventHandler(this.checkBoxVisibleSignUp_CheckedChanged);
             // 
             // buttonClearSignUp
             // 
@@ -465,15 +476,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.buttonLoginClickSignUP.Text = "Login";
             this.buttonLoginClickSignUP.UseVisualStyleBackColor = true;
             this.buttonLoginClickSignUP.Click += new System.EventHandler(this.buttonLoginClickSignUP_Click);
-            // 
-            // textBoxUserNameLogin
-            // 
-            this.textBoxUserNameLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserNameLogin.Location = new System.Drawing.Point(179, 130);
-            this.textBoxUserNameLogin.Name = "textBoxUserNameLogin";
-            this.textBoxUserNameLogin.Size = new System.Drawing.Size(320, 34);
-            this.textBoxUserNameLogin.TabIndex = 0;
-            this.textBoxUserNameLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
             // 
             // FormLogin
             // 

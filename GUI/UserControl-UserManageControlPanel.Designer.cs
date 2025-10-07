@@ -114,8 +114,8 @@
             // 
             this.buttonSearch.BackColor = System.Drawing.Color.Transparent;
             this.buttonSearch.FlatAppearance.BorderSize = 0;
-            this.buttonSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.buttonSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.buttonSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.buttonSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearch.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSearch.ForeColor = System.Drawing.Color.White;
@@ -131,6 +131,8 @@
             // 
             this.buttonRefresh.BackColor = System.Drawing.Color.Teal;
             this.buttonRefresh.FlatAppearance.BorderSize = 0;
+            this.buttonRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.buttonRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRefresh.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRefresh.ForeColor = System.Drawing.SystemColors.Control;
@@ -303,6 +305,8 @@
             // 
             this.buttonSaveUser.BackColor = System.Drawing.Color.Teal;
             this.buttonSaveUser.FlatAppearance.BorderSize = 0;
+            this.buttonSaveUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.buttonSaveUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.buttonSaveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSaveUser.ForeColor = System.Drawing.SystemColors.Control;
@@ -338,6 +342,8 @@
             // 
             this.buttonDeleteUser.BackColor = System.Drawing.Color.Red;
             this.buttonDeleteUser.FlatAppearance.BorderSize = 0;
+            this.buttonDeleteUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.buttonDeleteUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.buttonDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteUser.ForeColor = System.Drawing.Color.White;
@@ -353,6 +359,8 @@
             // 
             this.buttonNewUser.BackColor = System.Drawing.Color.Teal;
             this.buttonNewUser.FlatAppearance.BorderSize = 0;
+            this.buttonNewUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.buttonNewUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.buttonNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNewUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNewUser.ForeColor = System.Drawing.SystemColors.Control;

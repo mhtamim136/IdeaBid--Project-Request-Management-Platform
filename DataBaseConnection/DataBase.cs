@@ -66,33 +66,8 @@ namespace IdeaBid__Project_Request___Management_Platform.DataBaseConnection
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
                 return null;
 
-            //string query = @"
-            //    SELECT TOP 1 Role FROM (
-            //        SELECT 'Admin' AS Role FROM AdminInfo
-            //        WHERE AdminUsername = @u
-            //        AND AdminPassword COLLATE SQL_Latin1_General_CP1_CS_AS = @p
-            //        UNION ALL
-            //        SELECT 'Dev' FROM DevInfo
-            //        WHERE DevUsername = @u
-            //        AND DevPassword COLLATE SQL_Latin1_General_CP1_CS_AS = @p
-            //        UNION ALL
-            //        SELECT 'User' FROM UserInfo
-            //        WHERE UserName = @u
-            //        AND Password COLLATE SQL_Latin1_General_CP1_CS_AS = @p
-            //    ) UserRoles;";
-
-            //try
-            //{
-            //    var parameters = CreateParameters(
-            //        ("@u", username),
-            //        ("@p", password)
-            //    );
-
-            //    object result = ExecuteScalar(query, parameters);
-            //    return result?.ToString();
-            //}
-            //username = username.Trim().Replace("'", "''");
-            //password = password.Trim().Replace("'", "''");
+            username = username.Trim().Replace("'", "''");
+            password = password.Trim().Replace("'", "''");
 
             string query = $@"
         SELECT TOP 1 Role FROM (
@@ -123,39 +98,9 @@ namespace IdeaBid__Project_Request___Management_Platform.DataBaseConnection
 
         public static (bool usernameExists, bool emailExists) CheckUsernameOrEmailExists(string username, string email)
         {
-            //string userQuery = @"
-            //    SELECT TOP 1 1 FROM (
-            //        SELECT AdminUsername AS val FROM AdminInfo
-            //        UNION ALL
-            //        SELECT DevUsername FROM DevInfo
-            //        UNION ALL
-            //        SELECT UserName FROM UserInfo
-            //    ) x
-            //    WHERE val = @u;";
 
-            //string emailQuery = @"
-            //    SELECT TOP 1 1 FROM (
-            //        SELECT AdminEmail AS val FROM AdminInfo
-            //        UNION ALL
-            //        SELECT DevEmail FROM DevInfo
-            //        UNION ALL
-            //        SELECT Email FROM UserInfo
-            //    ) x
-            //    WHERE val = @e;";
-
-            //try
-            //{
-            //    var userParam = CreateParameters(("@u", username ?? ""));
-            //    var emailParam = CreateParameters(("@e", email ?? ""));
-
-            //    bool uExists = ExecuteScalar(userQuery, userParam) != null;
-            //    bool eExists = ExecuteScalar(emailQuery, emailParam) != null;
-
-            //    return (uExists, eExists);
-            //}
-
-            //username = (username ?? "").Trim().Replace("'", "''");
-            //email = (email ?? "").Trim().Replace("'", "''");
+            username = (username ?? "").Trim().Replace("'", "''");
+            email = (email ?? "").Trim().Replace("'", "''");
 
             string userQuery = $@"
         SELECT TOP 1 1 FROM (
@@ -190,22 +135,6 @@ namespace IdeaBid__Project_Request___Management_Platform.DataBaseConnection
                 return (false, false);
             }
         }
-
-        //public static SqlParameter CreateParameter(string name, object value)
-        //{
-        //    if (!name.StartsWith("@")) name = "@" + name;
-        //    return new SqlParameter(name, value ?? DBNull.Value);
-        //}
-
-        //public static SqlParameter[] CreateParameters(params (string name, object value)[] parameters)
-        //{
-        //    SqlParameter[] sqlParams = new SqlParameter[parameters.Length];
-        //    for (int i = 0; i < parameters.Length; i++)
-        //    {
-        //        sqlParams[i] = CreateParameter(parameters[i].name, parameters[i].value);
-        //    }
-        //    return sqlParams;
-        //}
 
 
 
@@ -265,14 +194,6 @@ namespace IdeaBid__Project_Request___Management_Platform.DataBaseConnection
 
             if (password.Length < 4 || password.Length > 20)
                 return ("Password should be 4 to 20 characters long.", "password");
-
-            //var (userExists, emailExists) = DataBase.CheckUsernameOrEmailExists(username, email);
-            //if (userExists)
-            //    return ("Username already exists. Please choose another.", "username");
-            //if (emailExists)
-            //    return ("Email already exists. Please use another.", "email");
-
-
 
             return (null, null);
         }

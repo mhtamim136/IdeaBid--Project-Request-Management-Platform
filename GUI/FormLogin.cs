@@ -26,10 +26,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             InitializeComponent();
             textBoxPasswordLogin.UseSystemPasswordChar = true;
             textBoxPasswordSignUp.UseSystemPasswordChar = true;
-            checkBoxVisibleLogin.CheckedChanged += checkBoxVisibleLogin_CheckedChanged;
-            checkBoxVisibleSignUp.CheckedChanged += checkBoxVisibleSignUp_CheckedChanged;
-            panelLogin.Visible = true;
-            panelSignUp.Visible = false;
 
             CreateIndicator();
 
@@ -95,6 +91,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private void FormLogin_Load(object sender, EventArgs e)
         {
             panelSignUp.Visible = false;
+            panelLogin.Visible = true;
             LoadRemembered();
             textBoxUserNameLogin.Focus();
         }
@@ -175,21 +172,16 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 return;
             }
 
-
-            //string query = "INSERT INTO UserInfo (UserName, FullName, Email, UserType, Password) VALUES (@UserName, @FullName, @Email, @UserType, @Password)";
-
-            //var parameters = DataBase.CreateParameters(
-            //    ("@UserName", userName),
-            //    ("@FullName", fullName),
-            //    ("@Email", email),
-            //    ("@UserType", userType),
-            //    ("@Password", password)
-            //);
-            // int result = DataBase.ExecuteNonQuery(query, parameters);
+            //Single quote protection
+            userName = userName.Replace("'", "''");
+            fullName = fullName.Replace("'", "''");
+            email = email.Replace("'", "''");
+            userType = userType.Replace("'", "''");
+            password = password.Replace("'", "''");
 
             string query = $@"
-    INSERT INTO UserInfo (UserName, FullName, Email, UserType, Password)
-    VALUES ('{userName}', '{fullName}', '{email}', '{userType}', '{password}')";
+            INSERT INTO UserInfo (UserName, FullName, Email, UserType, Password)
+            VALUES ('{userName}', '{fullName}', '{email}', '{userType}', '{password}')";
 
             int result = DataBase.ExecuteNonQuery(query);
 

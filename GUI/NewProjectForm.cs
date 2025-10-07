@@ -60,9 +60,9 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         private void LoadRequestData(int requestId)
         {
-            string sql = @"SELECT * FROM ProjectRequest WHERE RequestID = @RequestID";
-            var prms = DataBase.CreateParameters(("@RequestID", requestId));
-            DataTable dt = DataBase.GetDataTable(sql, prms);
+            string sql = $"SELECT * FROM ProjectRequest WHERE RequestID = {requestId}";
+            DataTable dt = DataBase.GetDataTable(sql);
+
             if (dt == null || dt.Rows.Count == 0) return;
 
             var r = dt.Rows[0];
@@ -131,22 +131,20 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 // INSERT
                 if (textBoxRequestID.Text == "Auto Generated" || !int.TryParse(textBoxRequestID.Text, out int requestId))
                 {
-                    string insertSql = @"
-INSERT INTO ProjectRequest (UserID, CategoryID, Languages, Title, Description, BudgetOffered, Deadline)
-VALUES (@UserID, @CategoryID, @Languages, @Title, @Description, @BudgetOffered, @Deadline); // Status ID dafault 1 (Open)
-SELECT CAST(SCOPE_IDENTITY() AS INT);";
+                    string insertSql = $@"
+                                        INSERT INTO ProjectRequest (UserID, CategoryID, Languages, Title, Description, BudgetOffered, Deadline)
+                                        VALUES (
+                                            {_currentUserId},
+                                            {categoryId},
+                                            {(string.IsNullOrWhiteSpace(languages) ? "NULL" : $"'{languages}'")},
+                                            '{title}',
+                                            '{description}',
+                                            {(budget.HasValue ? budget.Value.ToString() : "NULL")},
+                                            {(deadline.HasValue ? $"'{deadline.Value:yyyy-MM-dd HH:mm:ss}'" : "NULL")}
+                                        );
+                                        SELECT SCOPE_IDENTITY();"; // StatusID defaults to 1 (Open)
 
-                    var prms = DataBase.CreateParameters(
-                        ("UserID", _currentUserId),
-                        ("CategoryID", categoryId),
-                        ("Languages", (object)languages ?? DBNull.Value),
-                        ("Title", title),
-                        ("Description", description),
-                        ("BudgetOffered", budget.HasValue ? (object)budget.Value : DBNull.Value),
-                        ("Deadline", deadline.HasValue ? (object)deadline.Value : DBNull.Value)
-                    );
-
-                    object res = DataBase.ExecuteScalar(insertSql, prms);
+                    object res = DataBase.ExecuteScalar(insertSql);
                     if (res != null && int.TryParse(res.ToString(), out int newId))
                     {
                         textBoxRequestID.Text = newId.ToString();
@@ -157,23 +155,21 @@ SELECT CAST(SCOPE_IDENTITY() AS INT);";
                 }
                 else // UPDATE
                 {
-                    string updateSql = @"
-UPDATE ProjectRequest
-SET CategoryID=@CategoryID, Languages=@Languages, Title=@Title, Description=@Description,
-    BudgetOffered=@BudgetOffered, Deadline=@Deadline, StatusID = 1,PostedDate = GETDATE() 
-WHERE RequestID=@RequestID";
+                    string updateSql = $@"
+                                        UPDATE ProjectRequest
+                                        SET 
+                                            CategoryID = {categoryId},
+                                            Languages = {(string.IsNullOrWhiteSpace(languages) ? "NULL" : $"'{languages}'")},
+                                            Title = '{title}',
+                                            Description = '{description}',
+                                            BudgetOffered = {(budget.HasValue ? budget.Value.ToString() : "NULL")},
+                                            Deadline = {(deadline.HasValue ? $"'{deadline.Value:yyyy-MM-dd HH:mm:ss}'" : "NULL")},
+                                            StatusID = 1,
+                                            PostedDate = GETDATE()
+                                        WHERE RequestID = {requestId};
+                                        ";
 
-                    var prms = DataBase.CreateParameters(
-                        ("CategoryID", categoryId),
-                        ("Languages", (object)languages ?? DBNull.Value),
-                        ("Title", title),
-                        ("Description", description),
-                        ("BudgetOffered", budget.HasValue ? (object)budget.Value : DBNull.Value),
-                        ("Deadline", deadline.HasValue ? (object)deadline.Value : DBNull.Value),
-                        ("RequestID", requestId)
-                    );
-
-                    int affected = DataBase.ExecuteNonQuery(updateSql, prms);
+                    int affected = DataBase.ExecuteNonQuery(updateSql);
                     if (affected > 0)
                     {
                         MessageBox.Show("Request updated.", "Success");

@@ -14,18 +14,15 @@ namespace IdeaBid__Project_Request___Management_Platform.DataBaseConnection
     {
         private const string ConnectionString = @"Data Source=TAMIM\SQLEXPRESS;Initial Catalog=IdeaBid;Integrated Security=True;TrustServerCertificate=True";
 
-        public static object ExecuteScalar(string query, SqlParameter[] parameters = null)
+        public static object ExecuteScalar(string sql)
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(ConnectionString))
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    if (parameters != null)
-                        command.Parameters.AddRange(parameters);
-
-                    connection.Open();
-                    return command.ExecuteScalar();
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    conn.Open();
+                    return cmd.ExecuteScalar();
                 }
             }
             catch (Exception ex)
@@ -35,20 +32,18 @@ namespace IdeaBid__Project_Request___Management_Platform.DataBaseConnection
             }
         }
 
-        public static int ExecuteNonQuery(string query, SqlParameter[] parameters = null)
+        public static int ExecuteNonQuery(string sql)
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(ConnectionString))
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    if (parameters != null)
-                        command.Parameters.AddRange(parameters);
-
-                    connection.Open();
-                    return command.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    conn.Open();
+                    return cmd.ExecuteNonQuery();
                 }
             }
+
             catch (SqlException ex) when (ex.Number == 2627 || ex.Number == 2601)
             {
                 MessageBox.Show("That username or email is already registered.", "Duplicate entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -71,29 +66,52 @@ namespace IdeaBid__Project_Request___Management_Platform.DataBaseConnection
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
                 return null;
 
-            string query = @"
-                SELECT TOP 1 Role FROM (
-                    SELECT 'Admin' AS Role FROM AdminInfo
-                    WHERE AdminUsername = @u
-                    AND AdminPassword COLLATE SQL_Latin1_General_CP1_CS_AS = @p
-                    UNION ALL
-                    SELECT 'Dev' FROM DevInfo
-                    WHERE DevUsername = @u
-                    AND DevPassword COLLATE SQL_Latin1_General_CP1_CS_AS = @p
-                    UNION ALL
-                    SELECT 'User' FROM UserInfo
-                    WHERE UserName = @u
-                    AND Password COLLATE SQL_Latin1_General_CP1_CS_AS = @p
-                ) UserRoles;";
+            //string query = @"
+            //    SELECT TOP 1 Role FROM (
+            //        SELECT 'Admin' AS Role FROM AdminInfo
+            //        WHERE AdminUsername = @u
+            //        AND AdminPassword COLLATE SQL_Latin1_General_CP1_CS_AS = @p
+            //        UNION ALL
+            //        SELECT 'Dev' FROM DevInfo
+            //        WHERE DevUsername = @u
+            //        AND DevPassword COLLATE SQL_Latin1_General_CP1_CS_AS = @p
+            //        UNION ALL
+            //        SELECT 'User' FROM UserInfo
+            //        WHERE UserName = @u
+            //        AND Password COLLATE SQL_Latin1_General_CP1_CS_AS = @p
+            //    ) UserRoles;";
+
+            //try
+            //{
+            //    var parameters = CreateParameters(
+            //        ("@u", username),
+            //        ("@p", password)
+            //    );
+
+            //    object result = ExecuteScalar(query, parameters);
+            //    return result?.ToString();
+            //}
+            //username = username.Trim().Replace("'", "''");
+            //password = password.Trim().Replace("'", "''");
+
+            string query = $@"
+        SELECT TOP 1 Role FROM (
+            SELECT 'Admin' AS Role FROM AdminInfo
+            WHERE AdminUsername = '{username}'
+            AND AdminPassword COLLATE SQL_Latin1_General_CP1_CS_AS = '{password}'
+            UNION ALL
+            SELECT 'Dev' FROM DevInfo
+            WHERE DevUsername = '{username}'
+            AND DevPassword COLLATE SQL_Latin1_General_CP1_CS_AS = '{password}'
+            UNION ALL
+            SELECT 'User' FROM UserInfo
+            WHERE UserName = '{username}'
+            AND Password COLLATE SQL_Latin1_General_CP1_CS_AS = '{password}'
+        ) UserRoles;";
 
             try
             {
-                var parameters = CreateParameters(
-                    ("@u", username),
-                    ("@p", password)
-                );
-
-                object result = ExecuteScalar(query, parameters);
+                object result = ExecuteScalar(query);
                 return result?.ToString();
             }
             catch (Exception)
@@ -105,82 +123,110 @@ namespace IdeaBid__Project_Request___Management_Platform.DataBaseConnection
 
         public static (bool usernameExists, bool emailExists) CheckUsernameOrEmailExists(string username, string email)
         {
-            string userQuery = @"
-                SELECT TOP 1 1 FROM (
-                    SELECT AdminUsername AS val FROM AdminInfo
-                    UNION ALL
-                    SELECT DevUsername FROM DevInfo
-                    UNION ALL
-                    SELECT UserName FROM UserInfo
-                ) x
-                WHERE val = @u;";
+            //string userQuery = @"
+            //    SELECT TOP 1 1 FROM (
+            //        SELECT AdminUsername AS val FROM AdminInfo
+            //        UNION ALL
+            //        SELECT DevUsername FROM DevInfo
+            //        UNION ALL
+            //        SELECT UserName FROM UserInfo
+            //    ) x
+            //    WHERE val = @u;";
 
-            string emailQuery = @"
-                SELECT TOP 1 1 FROM (
-                    SELECT AdminEmail AS val FROM AdminInfo
-                    UNION ALL
-                    SELECT DevEmail FROM DevInfo
-                    UNION ALL
-                    SELECT Email FROM UserInfo
-                ) x
-                WHERE val = @e;";
+            //string emailQuery = @"
+            //    SELECT TOP 1 1 FROM (
+            //        SELECT AdminEmail AS val FROM AdminInfo
+            //        UNION ALL
+            //        SELECT DevEmail FROM DevInfo
+            //        UNION ALL
+            //        SELECT Email FROM UserInfo
+            //    ) x
+            //    WHERE val = @e;";
+
+            //try
+            //{
+            //    var userParam = CreateParameters(("@u", username ?? ""));
+            //    var emailParam = CreateParameters(("@e", email ?? ""));
+
+            //    bool uExists = ExecuteScalar(userQuery, userParam) != null;
+            //    bool eExists = ExecuteScalar(emailQuery, emailParam) != null;
+
+            //    return (uExists, eExists);
+            //}
+
+            //username = (username ?? "").Trim().Replace("'", "''");
+            //email = (email ?? "").Trim().Replace("'", "''");
+
+            string userQuery = $@"
+        SELECT TOP 1 1 FROM (
+            SELECT AdminUsername AS val FROM AdminInfo
+            UNION ALL
+            SELECT DevUsername FROM DevInfo
+            UNION ALL
+            SELECT UserName FROM UserInfo
+        ) x
+        WHERE val = '{username}';";
+
+            string emailQuery = $@"
+        SELECT TOP 1 1 FROM (
+            SELECT AdminEmail AS val FROM AdminInfo
+            UNION ALL
+            SELECT DevEmail FROM DevInfo
+            UNION ALL
+            SELECT Email FROM UserInfo
+        ) x
+        WHERE val = '{email}';";
 
             try
             {
-                var userParam = CreateParameters(("@u", username ?? ""));
-                var emailParam = CreateParameters(("@e", email ?? ""));
-
-                bool uExists = ExecuteScalar(userQuery, userParam) != null;
-                bool eExists = ExecuteScalar(emailQuery, emailParam) != null;
+                bool uExists = ExecuteScalar(userQuery) != null;
+                bool eExists = ExecuteScalar(emailQuery) != null;
 
                 return (uExists, eExists);
             }
+
             catch (Exception)
             {
                 return (false, false);
             }
         }
 
-        public static SqlParameter CreateParameter(string name, object value)
+        //public static SqlParameter CreateParameter(string name, object value)
+        //{
+        //    if (!name.StartsWith("@")) name = "@" + name;
+        //    return new SqlParameter(name, value ?? DBNull.Value);
+        //}
+
+        //public static SqlParameter[] CreateParameters(params (string name, object value)[] parameters)
+        //{
+        //    SqlParameter[] sqlParams = new SqlParameter[parameters.Length];
+        //    for (int i = 0; i < parameters.Length; i++)
+        //    {
+        //        sqlParams[i] = CreateParameter(parameters[i].name, parameters[i].value);
+        //    }
+        //    return sqlParams;
+        //}
+
+
+
+        public static DataTable GetDataTable(string sql)
         {
-            if (!name.StartsWith("@")) name = "@" + name;
-            return new SqlParameter(name, value ?? DBNull.Value);
-        }
-
-        public static SqlParameter[] CreateParameters(params (string name, object value)[] parameters)
-        {
-            SqlParameter[] sqlParams = new SqlParameter[parameters.Length];
-            for (int i = 0; i < parameters.Length; i++)
-            {
-                sqlParams[i] = CreateParameter(parameters[i].name, parameters[i].value);
-            }
-            return sqlParams;
-        }
-
-
-
-        public static DataTable GetDataTable(string sql, SqlParameter[] parameters = null)
-        {
-            var dt = new DataTable();
             try
             {
-                using (var conn = new SqlConnection(ConnectionString))
-                using (var cmd = new SqlCommand(sql, conn))
-                using (var da = new SqlDataAdapter(cmd))
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    if (parameters != null && parameters.Length > 0)
-                        cmd.Parameters.AddRange(parameters);
-
-                    conn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                    DataTable dt = new DataTable();
                     da.Fill(dt);
+                    return dt;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Database error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
 
-            return dt;
         }
     }
 

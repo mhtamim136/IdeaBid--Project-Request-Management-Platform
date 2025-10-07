@@ -36,7 +36,6 @@
             this.userControlOurResponses = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlOurResponses();
             this.userControlProjectBoard = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlProjectBoard();
             this.userControlOurProjects = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlOurProjects();
-            this.DashboardControlPanel1 = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlDashboardControlPanel();
             this.UserManageControlPanel1 = new IdeaBid__Project_Request___Management_Platform.UserControlUserManageControlPanel();
             this.panelSlidebar = new System.Windows.Forms.Panel();
             this.buttonLogout = new System.Windows.Forms.Button();
@@ -104,7 +103,6 @@
             this.panelDisplayControlPortal.Controls.Add(this.userControlOurResponses);
             this.panelDisplayControlPortal.Controls.Add(this.userControlProjectBoard);
             this.panelDisplayControlPortal.Controls.Add(this.userControlOurProjects);
-            this.panelDisplayControlPortal.Controls.Add(this.DashboardControlPanel1);
             this.panelDisplayControlPortal.Controls.Add(this.UserManageControlPanel1);
             this.panelDisplayControlPortal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDisplayControlPortal.Location = new System.Drawing.Point(292, 92);
@@ -137,14 +135,7 @@
             this.userControlOurProjects.Size = new System.Drawing.Size(1475, 719);
             this.userControlOurProjects.TabIndex = 2;
             // 
-            // DashboardControlPanel1
-            // 
-            this.DashboardControlPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.DashboardControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DashboardControlPanel1.Location = new System.Drawing.Point(0, 0);
-            this.DashboardControlPanel1.Name = "DashboardControlPanel1";
-            this.DashboardControlPanel1.Size = new System.Drawing.Size(1475, 719);
-            this.DashboardControlPanel1.TabIndex = 1;
+
             // 
             // UserManageControlPanel1
             // 
@@ -450,7 +441,6 @@
         private System.Windows.Forms.Label labelTitleControlPortal;
         private System.Windows.Forms.Panel panelDisplayControlPortal;
         private UserControlUserManageControlPanel UserManageControlPanel1;
-        private UserControlDashboardControlPanel DashboardControlPanel1;
         private UserControlOurProjects userControlOurProjects;
         private UserControlProjectBoard userControlProjectBoard;
         private UserControlOurResponses userControlOurResponses;

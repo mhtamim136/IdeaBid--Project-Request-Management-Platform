@@ -146,66 +146,9 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             string password = textBoxPasswordSignUp.Text;
             string userType = radioButtonStudentSignUp.Checked ? "Student" :
                               radioButtonCompanySignUp.Checked ? "Company" :
-                              radioButtonOtherSignUp.Checked ? "Other" : "";
+                              radioButtonOtherSignUp.Checked ? "Others" : "";
 
-            //if (string.IsNullOrWhiteSpace(userName))
-            //{
-            //    MessageBox.Show("Please enter a username.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    textBoxUserNameSignUp.Focus();
-            //    return;
-            //}
-
-            //if (string.IsNullOrWhiteSpace(fullName))
-            //{
-            //    MessageBox.Show("Please enter your full name.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    textBoxFullNameSignUp.Focus();
-            //    return;
-            //}
-
-            //if (string.IsNullOrWhiteSpace(email))
-            //{
-            //    MessageBox.Show("Please enter your email address.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    textBoxEmailSignUp.Focus();
-            //    return;
-            //}
-
-            //if (string.IsNullOrWhiteSpace(password))
-            //{
-            //    MessageBox.Show("Please enter a password.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    textBoxPasswordSignUp.Focus();
-            //    return;
-            //}
-
-            //if (string.IsNullOrWhiteSpace(userType))
-            //{
-            //    MessageBox.Show("Please select a user type.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
-
-
-            //if (userName.Length < 4 || userName.Length > 50)
-            //{
-            //    MessageBox.Show("Username should be 4 to 50 characters long.",
-            //                    "Invalid Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    textBoxUserNameSignUp.Focus();
-            //    return;
-            //}
-
-            //if (!email.Contains("@") || !email.Contains("."))
-            //{
-            //    MessageBox.Show("Please enter a valid email address (e.g., name@example.com).",
-            //                    "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    textBoxEmailSignUp.Focus();
-            //    return;
-            //}
-
-            //if (password.Length < 4 || password.Length > 20)
-            //{
-            //    MessageBox.Show("Password should be 4 to 20 characters long.",
-            //                    "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    textBoxPasswordSignUp.Focus();
-            //    return;
-            //}
+            
 
             var (error, field) = ValidationHelper.ValidateUserInput(userName, fullName, email, password, userType);
 
@@ -233,81 +176,22 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             }
 
 
+            //string query = "INSERT INTO UserInfo (UserName, FullName, Email, UserType, Password) VALUES (@UserName, @FullName, @Email, @UserType, @Password)";
 
-            //var (userExists, emailExists) = CheckUsernameOrEmailExists(userName, email);
-            //if (userExists || emailExists)
-            //{
-            //    string msg = "";
-            //    if (userExists) msg += "Username already exists. ";
-            //    if (emailExists) msg += "Email already exists.";
-            //    MessageBox.Show(msg.Trim(), "Duplicate entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
+            //var parameters = DataBase.CreateParameters(
+            //    ("@UserName", userName),
+            //    ("@FullName", fullName),
+            //    ("@Email", email),
+            //    ("@UserType", userType),
+            //    ("@Password", password)
+            //);
+            // int result = DataBase.ExecuteNonQuery(query, parameters);
 
+            string query = $@"
+    INSERT INTO UserInfo (UserName, FullName, Email, UserType, Password)
+    VALUES ('{userName}', '{fullName}', '{email}', '{userType}', '{password}')";
 
-
-
-
-
-
-            //try
-            //{
-
-            //    using (SqlConnection sqlConnection = new SqlConnection("Data Source=TAMIM\\SQLEXPRESS;Initial Catalog=IdeaBid;Integrated Security=True;TrustServerCertificate=True"))
-            //    {
-
-            //        sqlConnection.Open();
-
-            //        string query = "INSERT INTO UserInfo (UserName, FullName, Email, UserType, Password) VALUES (@UserName, @FullName, @Email, @UserType, @Password)";
-
-            //        using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
-            //        {
-            //            sqlCommand.Parameters.AddWithValue("@UserName", userName);
-            //            sqlCommand.Parameters.AddWithValue("@FullName", fullName);
-            //            sqlCommand.Parameters.AddWithValue("@Email", email);
-            //            sqlCommand.Parameters.AddWithValue("@UserType", userType);
-            //            sqlCommand.Parameters.AddWithValue("@Password", password);
-
-            //            sqlCommand.ExecuteNonQuery();
-            //        }
-            //    }
-
-            //    MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //    ClearSignUpField();
-            //    panelLogin.Visible = true;
-            //    panelSignUp.Visible = false;
-            //    textBoxUserNameLogin.Focus();
-            //    MoveIndicator(buttonLoginClickLogin, panelLogin);
-            //}
-
-            //catch (SqlException ex) when (ex.Number == 2627 || ex.Number == 2601)
-            //{
-            //    MessageBox.Show("That username or email is already registered.", "Duplicate entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-
-            //catch (SqlException ex) when (ex.Number == 8152)
-            //{
-            //    MessageBox.Show("One of your inputs is too long. Please shorten it.", "Data Too Long", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Something went wrong. Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-
-            string query = "INSERT INTO UserInfo (UserName, FullName, Email, UserType, Password) VALUES (@UserName, @FullName, @Email, @UserType, @Password)";
-
-            var parameters = DataBase.CreateParameters(
-                ("@UserName", userName),
-                ("@FullName", fullName),
-                ("@Email", email),
-                ("@UserType", userType),
-                ("@Password", password)
-            );
-
-            int result = DataBase.ExecuteNonQuery(query, parameters);
+            int result = DataBase.ExecuteNonQuery(query);
 
             if (result > 0)
             {
@@ -327,21 +211,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private void buttonLogin_Click(object sender, EventArgs e)
         {
 
-            //UserDashboard dashboard = new UserDashboard();
-            //dashboard.Owner = this;
-
-
-            ////dashboard.FormClosed += (s, args) => {
-            ////    this.Show();
-            ////    ClearLoginFields();
-            ////};
-            //dashboard.Show();
-            //this.Hide();
-            //ClearLoginFields();
-
-            ////Testing
-            //FormControlPortal controlPortal = new FormControlPortal();
-            //controlPortal.Show();
             labelInvalidWaringLogin.Visible = false;
 
             string username = textBoxUserNameLogin.Text.Trim();
@@ -356,7 +225,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 return;
             }
 
-            //string role = AuthenticateRole(username, password);
             string role = DataBase.AuthenticateRole(username, password);
 
             if (role == null)

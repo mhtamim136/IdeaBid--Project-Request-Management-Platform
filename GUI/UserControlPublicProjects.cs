@@ -23,7 +23,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         {
             string query = @"
         SELECT 
-              c.CategoryName,
+            c.CategoryName,
             pr.Title,
             pr.BudgetOffered,
             s.StatusName
@@ -31,38 +31,29 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         LEFT JOIN Category c ON pr.CategoryID = c.CategoryID
         LEFT JOIN ProjectStatus s ON pr.StatusID = s.StatusID
         WHERE 1=1
-          AND s.StatusName = @statusName
+          AND s.StatusName = 'Completed'
     ";
-
-            SqlParameter[] pars;
 
             if (!string.IsNullOrWhiteSpace(search))
             {
-                query += @"
-        AND (
-            pr.Title LIKE @s
-        )";
 
-                pars = DataBase.CreateParameters(
-                    ("@statusName", "Completed"),   // filter for Completed projects (change value if needed)
-                    ("@s", "%" + search + "%")
-                );
-            }
-            else
-            {
-                pars = DataBase.CreateParameters(
-                    ("@statusName", "Completed")
-                );
+                query += $@"
+            AND (
+                pr.Title LIKE '%{search}%'
+                OR c.CategoryName LIKE '%{search}%'
+                OR pr.BudgetOffered LIKE '%{search}%'
+            )";
             }
 
             query += " ORDER BY pr.RequestID DESC";
 
-            DataTable dt = DataBase.GetDataTable(query, pars);
+            DataTable dt = DataBase.GetDataTable(query);
 
             metroGridPublicProjects.AutoGenerateColumns = false;
             metroGridPublicProjects.DataSource = dt;
             metroGridPublicProjects.ClearSelection();
         }
+
 
         private void UserControlPublicProjects_Load(object sender, EventArgs e)
         {

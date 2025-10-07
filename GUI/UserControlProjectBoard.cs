@@ -23,51 +23,58 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         public void LoadRequests(string search = null)
         {
-            
-
             string sql = @"
-        SELECT
-            pr.RequestID,
-            pr.UserID,
-            c.CategoryName   AS Category,
-            pr.Languages     AS Languages,   -- now coming directly from ProjectRequest
-            pr.Title,
-            pr.Description,
-            pr.BudgetOffered AS Budget,
-            pr.Deadline      AS Deadline,
-            s.StatusName     AS Status,
-            pr.PostedDate    AS PostedDate
-        FROM ProjectRequest pr
-        JOIN Category c ON pr.CategoryID = c.CategoryID
-        JOIN ProjectStatus s ON pr.StatusID = s.StatusID
-    ";
-
-            SqlParameter[] pars = null;
+                        SELECT
+                            pr.RequestID,
+                            pr.UserID,
+                            c.CategoryName   AS Category,
+                            pr.Languages     AS Languages,
+                            pr.Title,
+                            pr.Description,
+                            pr.BudgetOffered AS Budget,
+                            pr.Deadline      AS Deadline,
+                            s.StatusName     AS Status,
+                            pr.PostedDate    AS PostedDate
+                        FROM ProjectRequest pr
+                        JOIN Category c ON pr.CategoryID = c.CategoryID
+                        JOIN ProjectStatus s ON pr.StatusID = s.StatusID
+                        WHERE 1=1
+                    ";
 
             if (!string.IsNullOrWhiteSpace(search))
             {
-                sql += @"
-            AND (
-                CAST(pr.RequestID AS NVARCHAR(50)) LIKE @s
-                OR pr.Title LIKE @s
-                OR c.CategoryName LIKE @s
-                OR pr.UserID LIKE @s
-            )";
-
-                pars = DataBase.CreateParameters(("@s", $"%{search}%"));
+                // if user typed number, search by ID too
+                if (int.TryParse(search, out int idSearch))
+                {
+                    sql += $@"
+                AND (
+                    pr.RequestID = {idSearch}
+                    OR pr.UserID = {idSearch}
+                    OR pr.Title LIKE '%{search}%'
+                    OR c.CategoryName LIKE '%{search}%'
+                    OR pr.Languages LIKE '%{search}%'
+                )";
+                }
+                else
+                {
+                    sql += $@"
+                AND (
+                    pr.Title LIKE '%{search}%'
+                    OR c.CategoryName LIKE '%{search}%'
+                    OR pr.Languages LIKE '%{search}%'
+                )";
+                }
             }
 
             sql += " ORDER BY pr.StatusID ASC";
 
-            DataTable dt = (pars == null)
-                ? DataBase.GetDataTable(sql)
-                : DataBase.GetDataTable(sql, pars);
+            DataTable dt = DataBase.GetDataTable(sql);
 
             dataGridViewProjectBoard.AutoGenerateColumns = false;
             dataGridViewProjectBoard.DataSource = dt;
             dataGridViewProjectBoard.ClearSelection();
-            
         }
+
 
         private void UserControlProjectBoard_Load(object sender, EventArgs e)
         {

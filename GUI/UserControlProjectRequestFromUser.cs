@@ -19,15 +19,15 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         {
             InitializeComponent();
         }
-
-        public void LoadRequests(int userId, string search = null)
+        public  void LoadRequests(int userId, string search = null)
         {
             this.currentUserId = userId;
-            string sql = @"
+
+            string sql = $@"
         SELECT
             pr.RequestID,
             c.CategoryName   AS Category,
-            pr.Languages     AS Languages,   -- now coming directly from ProjectRequest
+            pr.Languages     AS Languages,
             pr.Title,
             pr.Description,
             pr.BudgetOffered AS Budget,
@@ -37,36 +37,38 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         FROM ProjectRequest pr
         JOIN Category c ON pr.CategoryID = c.CategoryID
         JOIN ProjectStatus s ON pr.StatusID = s.StatusID
-        WHERE pr.UserID = @userId
+        WHERE pr.UserID = {currentUserId}
     ";
 
-            SqlParameter[] pars;
             if (!string.IsNullOrWhiteSpace(search))
             {
-                sql += @"
-            AND (
-                CAST(pr.RequestID AS NVARCHAR(50)) LIKE @s
-                OR pr.Title LIKE @s
-                OR c.CategoryName LIKE @s
-            )";
+                if (int.TryParse(search, out int idSearch))
+                {
+                    sql += $@"
+                AND (
+                    pr.RequestID = {idSearch}
+                    OR pr.Title LIKE '%{search}%'
+                    OR c.CategoryName LIKE '%{search}%'
+                )";
+                }
+                else
+                {
+                    sql += $@"
+                AND (
+                    pr.Title LIKE '%{search}%'
+                    OR c.CategoryName LIKE '%{search}%'
+                )";
+                }
+            }
 
-                pars = DataBase.CreateParameters(
-                    ("@userId", userId),
-                    ("@s", $"%{search}%")
-                );
-            }
-            else
-            {
-                pars = DataBase.CreateParameters(("@userId", userId));
-            }
             sql += " ORDER BY pr.RequestID DESC";
 
-            DataTable dt = DataBase.GetDataTable(sql, pars);
-
+            DataTable dt = DataBase.GetDataTable(sql);
             metroGridForRequestProject.AutoGenerateColumns = false;
             metroGridForRequestProject.DataSource = dt;
             metroGridForRequestProject.ClearSelection();
         }
+
 
 
         private void buttonRefresh_Click(object sender, EventArgs e)
@@ -124,9 +126,9 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             try
             {
                 // Delete from database
-                string sql = "DELETE FROM ProjectRequest WHERE RequestID = @RequestID";
-                var parameters = DataBase.CreateParameters(("RequestID", requestId));
-                int affected = DataBase.ExecuteNonQuery(sql, parameters);
+                string sql = $"DELETE FROM ProjectRequest WHERE RequestID = {requestId}";
+                int affected = DataBase.ExecuteNonQuery(sql);
+
 
                 if (affected > 0)
                 {

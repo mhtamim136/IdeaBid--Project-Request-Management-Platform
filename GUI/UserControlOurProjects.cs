@@ -21,45 +21,30 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         public void LoadOurProjects(string search = null)
         {
-            string query = @"
+            string query = $@"
         SELECT 
             pr.RequestID,
-              c.CategoryName,
+            c.CategoryName,
             pr.Title,
             pr.BudgetOffered,
             s.StatusName
         FROM ProjectRequest pr
         LEFT JOIN Category c ON pr.CategoryID = c.CategoryID
         LEFT JOIN ProjectStatus s ON pr.StatusID = s.StatusID
-        WHERE 1=1
-          AND s.StatusName = @statusName
+        WHERE s.StatusName = 'Completed'
     ";
-
-            SqlParameter[] pars;
-
             if (!string.IsNullOrWhiteSpace(search))
             {
-                query += @"
+                query += $@"
             AND (
-                CAST(pr.RequestID AS NVARCHAR(50)) LIKE @s
-                OR pr.Title LIKE @s
+                CAST(pr.RequestID AS NVARCHAR(50)) LIKE '%{search}%'
+                OR pr.Title LIKE '%{search}%'
             )";
-
-                pars = DataBase.CreateParameters(
-                    ("@statusName", "Completed"),   // filter for Completed projects (change value if needed)
-                    ("@s", "%" + search + "%")
-                );
-            }
-            else
-            {
-                pars = DataBase.CreateParameters(
-                    ("@statusName", "Completed")
-                );
             }
 
             query += " ORDER BY pr.RequestID DESC";
 
-            DataTable dt = DataBase.GetDataTable(query, pars);
+            DataTable dt = DataBase.GetDataTable(query);
 
             dataGridViewOurProjects.AutoGenerateColumns = false;
             dataGridViewOurProjects.DataSource = dt;

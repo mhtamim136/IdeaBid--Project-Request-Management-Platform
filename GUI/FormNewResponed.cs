@@ -17,6 +17,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private readonly int _currentUserId;
         private readonly string _role;
         public readonly int _requestId;
+
         public FormNewResponed(string loggedInUser, string role, int requestId)
         {
             InitializeComponent();
@@ -24,22 +25,21 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             _requestId = requestId;
 
             string sql;
-            SqlParameter[] pars = DataBase.CreateParameters(("@u", loggedInUser));
 
             if (role == "Admin")
             {
-                sql = "SELECT AdminID FROM AdminInfo WHERE AdminUsername = @u";
+                sql = $"SELECT AdminID FROM AdminInfo WHERE AdminUsername = '{loggedInUser}'";
             }
-            else 
+            else
             {
-                sql = "SELECT DevID FROM DevInfo WHERE DevUsername = @u";
+                sql = $"SELECT DevID FROM DevInfo WHERE DevUsername = '{loggedInUser}'";
             }
 
-            object res = DataBase.ExecuteScalar(sql, pars);
+            object res = DataBase.ExecuteScalar(sql);
             _currentUserId = (res != null && int.TryParse(res.ToString(), out int id)) ? id : 0;
-
-
         }
+
+
 
         private void FormNewResponed_Load(object sender, EventArgs e)
         {
@@ -63,10 +63,9 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         private void LoadRequestDeadline()
         {
-            string sql = "SELECT Deadline FROM ProjectRequest WHERE RequestID = @rid";
-            var pars = DataBase.CreateParameters(("@rid", _requestId));
+            string sql = $"SELECT Deadline FROM ProjectRequest WHERE RequestID = {_requestId}";
 
-            object res = DataBase.ExecuteScalar(sql, pars);
+            object res = DataBase.ExecuteScalar(sql);
             if (res != null && DateTime.TryParse(res.ToString(), out DateTime deadline))
             {
                 metroDateTimeExpectedDate.Value = deadline;
@@ -76,6 +75,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 metroDateTimeExpectedDate.Value = DateTime.Now.AddDays(7);
             }
         }
+
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
@@ -113,68 +113,38 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             try
             {
                 // ✅ Insert into ProjectResponse
-                string insertSql = @"
-            INSERT INTO ProjectResponse 
-                (RequestID, DevID, AdminID, ProposalDate, ProposalAmount, Deadline, Feedback, StatusID)
-            VALUES
-                (@RequestID, @DevID, @AdminID, GETDATE(), @ProposalAmount, @Deadline, @Feedback, @StatusID);
-            SELECT CAST(SCOPE_IDENTITY() AS INT);";
+                string insertSql = $@"
+                                INSERT INTO ProjectResponse 
+                                    (RequestID, DevID, AdminID, ProposalDate, ProposalAmount, Deadline, Feedback, StatusID)
+                                VALUES
+                                    ({_requestId},
+                                     {(_role == "Admin" ? "NULL" : _currentUserId.ToString())},
+                                     {(_role == "Admin" ? _currentUserId.ToString() : "NULL")},
+                                     GETDATE(),
+                                     {(proposalAmount.HasValue ? proposalAmount.Value.ToString() : "NULL")},
+                                     {(expectedDeadline.HasValue ? $"'{expectedDeadline.Value:yyyy-MM-dd HH:mm:ss}'" : "NULL")},
+                                     {(string.IsNullOrEmpty(feedback) ? "NULL" : $"'{feedback}'")},
+                                     {statusId});
+                                SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
-                SqlParameter[] pars;
-
-                if (_role == "Admin")
-                {
-                    pars = DataBase.CreateParameters(
-                        ("@RequestID", _requestId),
-                        ("@DevID", DBNull.Value),
-                        ("@AdminID", _currentUserId),
-                        ("@ProposalAmount", proposalAmount.HasValue ? (object)proposalAmount.Value : DBNull.Value),
-                        ("@Deadline", expectedDeadline.HasValue ? (object)expectedDeadline.Value : DBNull.Value),
-                        ("@Feedback", string.IsNullOrEmpty(feedback) ? (object)DBNull.Value : feedback),
-                        ("@StatusID", statusId)
-                    );
-                }
-                else // Developer
-                {
-                    pars = DataBase.CreateParameters(
-                        ("@RequestID", _requestId),
-                        ("@DevID", _currentUserId),
-                        ("@AdminID", DBNull.Value),
-                        ("@ProposalAmount", proposalAmount.HasValue ? (object)proposalAmount.Value : DBNull.Value),
-                        ("@Deadline", expectedDeadline.HasValue ? (object)expectedDeadline.Value : DBNull.Value),
-                        ("@Feedback", string.IsNullOrEmpty(feedback) ? (object)DBNull.Value : feedback),
-                        ("@StatusID", statusId)
-                    );
-                }
-
-                object res = DataBase.ExecuteScalar(insertSql, pars);
+                object res = DataBase.ExecuteScalar(insertSql);
 
                 if (res != null && int.TryParse(res.ToString(), out int newResponseId))
                 {
                     textBoxResponseID.Text = newResponseId.ToString();
 
-                    string updateRequestSql = "UPDATE ProjectRequest SET StatusID = @sid";
+  
+                    string updateRequestSql = $"UPDATE ProjectRequest SET StatusID = {statusId}";
 
                     if (proposalAmount.HasValue)
-                        updateRequestSql += ", BudgetOffered = @budget";
+                        updateRequestSql += $", BudgetOffered = {proposalAmount.Value}";
 
                     if (expectedDeadline.HasValue)
-                        updateRequestSql += ", Deadline = @deadline";
+                        updateRequestSql += $", Deadline = '{expectedDeadline.Value:yyyy-MM-dd HH:mm:ss}'";
 
-                    updateRequestSql += " WHERE RequestID = @rid;";
+                    updateRequestSql += $" WHERE RequestID = {_requestId};";
 
-                    var reqPars = new List<SqlParameter>
-                                    {
-                                        new SqlParameter("@sid", statusId),
-                                        new SqlParameter("@rid", _requestId)
-                                    };
-                    if (proposalAmount.HasValue)
-                        reqPars.Add(new SqlParameter("@budget", proposalAmount.Value));
-
-                    if (expectedDeadline.HasValue)
-                        reqPars.Add(new SqlParameter("@deadline", expectedDeadline.Value));
-
-                    DataBase.ExecuteNonQuery(updateRequestSql, reqPars.ToArray());
+                    DataBase.ExecuteNonQuery(updateRequestSql);
 
                     MessageBox.Show("Response sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.DialogResult = DialogResult.OK;
@@ -187,9 +157,8 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error sending response:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
 
         }
 

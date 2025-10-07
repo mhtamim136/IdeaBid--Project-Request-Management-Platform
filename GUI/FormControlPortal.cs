@@ -41,9 +41,8 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             }
 
             string fullName = DataBase.ExecuteScalar(
-                $"SELECT {columnName} FROM {tableName} WHERE {userNameColumn} = @u",
-                DataBase.CreateParameters(("@u", username))
-            )?.ToString();
+    $@"SELECT {columnName} FROM {tableName} WHERE {userNameColumn} = '{username}'"
+)?.ToString();
 
             labelAdminDevDashboardControlPortal.Text =
                 $"👤 Welcome, {CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fullName.ToLower())}  |  Role: {Role}";
@@ -126,13 +125,11 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private void FormControlPanel_Load(object sender, EventArgs e)
         {
             ActivateButton(buttonDashboardControlPortal);
-            DashboardControlPanel1.BringToFront();
         }
 
         private void buttonDashboardControlPortal_Click(object sender, EventArgs e)
         {
             ActivateButton(buttonDashboardControlPortal);
-            DashboardControlPanel1.BringToFront();
         }
 
 

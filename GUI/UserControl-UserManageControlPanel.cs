@@ -36,27 +36,20 @@ namespace IdeaBid__Project_Request___Management_Platform
         public void LoadUsers(string search = null)
         {
             string sql = @"SELECT ID, UserName, FullName, Email, UserType, Password, CreatedDate
-               FROM UserInfo";
-
-            SqlParameter[] pars = null;
+                   FROM UserInfo";
 
             if (!string.IsNullOrWhiteSpace(search))
             {
-                sql += @" WHERE 
-                    CAST(ID AS NVARCHAR) LIKE @s OR 
-                    UserName LIKE @s OR 
-                    FullName LIKE @s OR 
-                    Email LIKE @s";
-
-                pars = new SqlParameter[]
-                {
-            new SqlParameter("@s", $"%{search}%")
-                };
+                sql += $@" WHERE 
+            CAST(ID AS NVARCHAR) LIKE '%{search}%' OR 
+            UserName LIKE '%{search}%' OR 
+            FullName LIKE '%{search}%' OR 
+            Email LIKE '%{search}%'";
             }
 
             sql += " ORDER BY ID ASC";
 
-            DataTable dt = DataBase.GetDataTable(sql, pars);
+            DataTable dt = DataBase.GetDataTable(sql);
             dgvTable.AutoGenerateColumns = false;
             dgvTable.DataSource = dt;
 
@@ -191,19 +184,16 @@ namespace IdeaBid__Project_Request___Management_Platform
                     return;
                 }
 
-                string insertSql = @"INSERT INTO UserInfo (UserName, FullName, Email, UserType, Password, CreatedDate)
-                             VALUES (@u, @f, @e, @ut, @p, GETDATE())";
+                string insertSql = $@"
+                                INSERT INTO UserInfo (UserName, FullName, Email, UserType, Password, CreatedDate)
+                                VALUES ('{username}', '{fullName}', '{email}', '{userType}', '{password}', GETDATE())";
 
-                var pars = DataBase.CreateParameters(
-                    ("@u", username), ("@f", fullName), ("@e", email),
-                    ("@ut", userType), ("@p", password)
-                );
-
-                if (DataBase.ExecuteNonQuery(insertSql, pars) > 0)
+                if (DataBase.ExecuteNonQuery(insertSql) > 0)
                 {
                     MessageBox.Show("User added successfully!");
                     LoadUsers();
                 }
+
             }
             else
             {
@@ -223,20 +213,22 @@ namespace IdeaBid__Project_Request___Management_Platform
                     }
                 }
 
-                string updateSql = @"UPDATE UserInfo 
-                             SET UserName=@u, FullName=@f, Email=@e, UserType=@ut, Password=@p
-                             WHERE ID=@id";
+                string updateSql = $@"
+                                    UPDATE UserInfo 
+                                    SET 
+                                        UserName = '{username}', 
+                                        FullName = '{fullName}', 
+                                        Email = '{email}', 
+                                        UserType = '{userType}', 
+                                        Password = '{password}'
+                                    WHERE ID = {selectedUserId}";
 
-                var pars = DataBase.CreateParameters(
-                    ("@u", username), ("@f", fullName), ("@e", email),
-                    ("@ut", userType), ("@p", password), ("@id", selectedUserId)
-                );
-
-                if (DataBase.ExecuteNonQuery(updateSql, pars) > 0)
+                if (DataBase.ExecuteNonQuery(updateSql) > 0)
                 {
                     MessageBox.Show("User updated successfully!");
                     LoadUsers();
                 }
+
 
             }
         }
@@ -255,9 +247,9 @@ namespace IdeaBid__Project_Request___Management_Platform
 
             if (result != DialogResult.Yes) return;
 
-            string sql = "DELETE FROM UserInfo WHERE ID = @id";
-            var pars = DataBase.CreateParameters(("@id", selectedUserId));
-            int rows = DataBase.ExecuteNonQuery(sql, pars);
+            string sql = $"DELETE FROM UserInfo WHERE ID = {selectedUserId}";
+            int rows = DataBase.ExecuteNonQuery(sql);
+
 
             if (rows > 0)
             {

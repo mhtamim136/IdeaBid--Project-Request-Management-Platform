@@ -31,8 +31,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             InitializeComponent();
             LoggedInUser = username;
             object userIdResult = DataBase.ExecuteScalar(
-                "SELECT TOP 1 ID FROM UserInfo WHERE UserName = @u",
-                DataBase.CreateParameters(("@u", username))
+                $"SELECT TOP 1 ID FROM UserInfo WHERE UserName = '{username}'"
             );
 
             if (userIdResult == null || userIdResult == DBNull.Value)
@@ -47,8 +46,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
             //Welcome Message
             string fullName = DataBase.ExecuteScalar(
-                "SELECT FullName FROM UserInfo WHERE ID = @id",
-                DataBase.CreateParameters(("@id", CurrentUserId))
+                $"SELECT FullName FROM UserInfo WHERE ID = {CurrentUserId}"
             )?.ToString();
 
             //labelUserDashboard.Text = $"Welcome, {fullName}!";
@@ -160,8 +158,8 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private void ButtonProfile_Click(object sender, EventArgs e)
         {
             ActivateButton(ButtonProfile);
-            userControlUserProfile.LoadUserInfo(CurrentUserId);
-            userControlUserProfile.BringToFront();
+            //userControlUserProfile.LoadUserInfo(CurrentUserId);
+            //userControlUserProfile.BringToFront();
             
 
         }

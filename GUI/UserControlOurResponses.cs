@@ -22,49 +22,50 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         public void LoadOurResponses(string search = null)
         {
             string sql = @"
-                SELECT 
-                    pr.ResponseID,
-                    pr.RequestID,
-                    pr.DevID,
-                    pr.AdminID,
-                    pr.ProposalDate,
-                    pr.ProposalAmount,
-                    pr.Deadline,
-                    pr.Feedback,
-                    pr.StatusID,        -- keep the ID for reference if needed
-                    s.StatusName        -- show name in grid
-                FROM ProjectResponse pr
-                LEFT JOIN ProjectStatus s ON pr.StatusID = s.StatusID
-                WHERE 1=1
-            ";
-
-            SqlParameter[] pars;
+        SELECT 
+            pr.ResponseID,
+            pr.RequestID,
+            pr.DevID,
+            pr.AdminID,
+            pr.ProposalDate,
+            pr.ProposalAmount,
+            pr.Deadline,
+            pr.Feedback,
+            pr.StatusID,        -- keep the ID for reference if needed
+            s.StatusName        -- show name in grid
+        FROM ProjectResponse pr
+        LEFT JOIN ProjectStatus s ON pr.StatusID = s.StatusID
+        WHERE 1=1
+    ";
 
             if (!string.IsNullOrWhiteSpace(search))
             {
-                sql += @"
-                        AND (
-                            CAST(pr.RequestID AS NVARCHAR(50)) LIKE @s
-                            OR CAST(pr.ResponseID AS NVARCHAR(50)) LIKE @s
-                        )";
+                //    sql += $@"
+                //AND (
+                //    CAST(pr.RequestID AS NVARCHAR(50)) LIKE '%{search}%'
+                //    OR CAST(pr.ResponseID AS NVARCHAR(50)) LIKE '%{search}%'
+                //)";
 
-                pars = DataBase.CreateParameters(
-                    ("@s", "%" + search + "%")
-                );
-            }
-            else
-            {
-                pars = new SqlParameter[0]; // no parameters
+                if (int.TryParse(search, out int searchId))
+                {
+                    sql += $@"
+                            AND (
+                                pr.RequestID = {searchId}
+                                OR pr.ResponseID = {searchId}
+                            )";
+                }
+
             }
 
             sql += " ORDER BY pr.ResponseID DESC";
 
-            DataTable dt = DataBase.GetDataTable(sql, pars);
+            DataTable dt = DataBase.GetDataTable(sql);
 
             metroGridDisplayResponses.AutoGenerateColumns = false;
             metroGridDisplayResponses.DataSource = dt;
             metroGridDisplayResponses.ClearSelection();
         }
+
 
 
 

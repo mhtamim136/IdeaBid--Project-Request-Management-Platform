@@ -46,7 +46,6 @@
             this.userControlPublicProjects = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlPublicProjects();
             this.userControlProjectRequestFormUser = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlProjectRequestFromUser();
             this.userControlProjectRequestFromUser1 = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlProjectRequestFromUser();
-            this.userControlUserProfile = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlUserProfile();
             this.panelDisplay.SuspendLayout();
             this.tableLayoutPanelControlPortal.SuspendLayout();
             this.panelTopLabel.SuspendLayout();
@@ -57,7 +56,6 @@
             // panelDisplay
             // 
             this.panelDisplay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelDisplay.Controls.Add(this.userControlUserProfile);
             this.panelDisplay.Controls.Add(this.userControlPublicProjects);
             this.panelDisplay.Controls.Add(this.userControlProjectRequestFormUser);
             this.panelDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -298,14 +296,7 @@
             this.userControlProjectRequestFromUser1.Size = new System.Drawing.Size(1486, 661);
             this.userControlProjectRequestFromUser1.TabIndex = 0;
             // 
-            // userControlUserProfile
-            // 
-            this.userControlUserProfile.CurrentUserId = 0;
-            this.userControlUserProfile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlUserProfile.Location = new System.Drawing.Point(0, 0);
-            this.userControlUserProfile.Name = "userControlUserProfile";
-            this.userControlUserProfile.Size = new System.Drawing.Size(1400, 661);
-            this.userControlUserProfile.TabIndex = 2;
+
             // 
             // FormUserDashboard
             // 
@@ -348,6 +339,5 @@
         private UserControlProjectRequestFromUser userControlProjectRequestFromUser1;
         private UserControlProjectRequestFromUser userControlProjectRequestFormUser;
         private UserControlPublicProjects userControlPublicProjects;
-        private UserControlUserProfile userControlUserProfile;
     }
 }

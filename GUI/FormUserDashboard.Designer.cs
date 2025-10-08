@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUserDashboard));
             this.panelDisplay = new System.Windows.Forms.Panel();
-            this.userControlPublicProjects = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlPublicProjects();
-            this.userControlProjectRequestFormUser = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlProjectRequestFromUser();
             this.tableLayoutPanelControlPortal = new System.Windows.Forms.TableLayoutPanel();
             this.panelTopLabel = new System.Windows.Forms.Panel();
             this.labelUserDashboard = new System.Windows.Forms.Label();
@@ -45,6 +43,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelTitleControlPortal = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.userControlPayment = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlPayment();
+            this.userControlUserProfile = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlUserProfile();
+            this.userControlPublicProjects = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlPublicProjects();
+            this.userControlProjectRequestFormUser = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlProjectRequestFromUser();
             this.userControlProjectRequestFromUser1 = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlProjectRequestFromUser();
             this.panelDisplay.SuspendLayout();
             this.tableLayoutPanelControlPortal.SuspendLayout();
@@ -56,6 +58,8 @@
             // panelDisplay
             // 
             this.panelDisplay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelDisplay.Controls.Add(this.userControlPayment);
+            this.panelDisplay.Controls.Add(this.userControlUserProfile);
             this.panelDisplay.Controls.Add(this.userControlPublicProjects);
             this.panelDisplay.Controls.Add(this.userControlProjectRequestFormUser);
             this.panelDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -63,23 +67,6 @@
             this.panelDisplay.Name = "panelDisplay";
             this.panelDisplay.Size = new System.Drawing.Size(1404, 665);
             this.panelDisplay.TabIndex = 3;
-            // 
-            // userControlPublicProjects
-            // 
-            this.userControlPublicProjects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlPublicProjects.Location = new System.Drawing.Point(0, 0);
-            this.userControlPublicProjects.Name = "userControlPublicProjects";
-            this.userControlPublicProjects.Size = new System.Drawing.Size(1400, 661);
-            this.userControlPublicProjects.TabIndex = 1;
-            // 
-            // userControlProjectRequestFormUser
-            // 
-            this.userControlProjectRequestFormUser.BackColor = System.Drawing.Color.Red;
-            this.userControlProjectRequestFormUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlProjectRequestFormUser.Location = new System.Drawing.Point(0, 0);
-            this.userControlProjectRequestFormUser.Name = "userControlProjectRequestFormUser";
-            this.userControlProjectRequestFormUser.Size = new System.Drawing.Size(1400, 661);
-            this.userControlProjectRequestFormUser.TabIndex = 0;
             // 
             // tableLayoutPanelControlPortal
             // 
@@ -288,6 +275,40 @@
             this.labelTitle.TabIndex = 3;
             this.labelTitle.Text = "IdeaBid";
             // 
+            // userControlPayment
+            // 
+            this.userControlPayment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlPayment.Location = new System.Drawing.Point(0, 0);
+            this.userControlPayment.Name = "userControlPayment";
+            this.userControlPayment.Size = new System.Drawing.Size(1400, 661);
+            this.userControlPayment.TabIndex = 3;
+            // 
+            // userControlUserProfile
+            // 
+            this.userControlUserProfile.CurrentUserId = 0;
+            this.userControlUserProfile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlUserProfile.Location = new System.Drawing.Point(0, 0);
+            this.userControlUserProfile.Name = "userControlUserProfile";
+            this.userControlUserProfile.Size = new System.Drawing.Size(1400, 661);
+            this.userControlUserProfile.TabIndex = 2;
+            // 
+            // userControlPublicProjects
+            // 
+            this.userControlPublicProjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlPublicProjects.Location = new System.Drawing.Point(0, 0);
+            this.userControlPublicProjects.Name = "userControlPublicProjects";
+            this.userControlPublicProjects.Size = new System.Drawing.Size(1400, 661);
+            this.userControlPublicProjects.TabIndex = 1;
+            // 
+            // userControlProjectRequestFormUser
+            // 
+            this.userControlProjectRequestFormUser.BackColor = System.Drawing.Color.Red;
+            this.userControlProjectRequestFormUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlProjectRequestFormUser.Location = new System.Drawing.Point(0, 0);
+            this.userControlProjectRequestFormUser.Name = "userControlProjectRequestFormUser";
+            this.userControlProjectRequestFormUser.Size = new System.Drawing.Size(1400, 661);
+            this.userControlProjectRequestFormUser.TabIndex = 0;
+            // 
             // userControlProjectRequestFromUser1
             // 
             this.userControlProjectRequestFromUser1.BackColor = System.Drawing.Color.Red;
@@ -338,5 +359,7 @@
         private UserControlProjectRequestFromUser userControlProjectRequestFromUser1;
         private UserControlProjectRequestFromUser userControlProjectRequestFormUser;
         private UserControlPublicProjects userControlPublicProjects;
+        private UserControlUserProfile userControlUserProfile;
+        private UserControlPayment userControlPayment;
     }
 }

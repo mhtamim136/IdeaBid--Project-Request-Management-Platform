@@ -133,6 +133,20 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
             try
             {
+                string checkSql = $"SELECT COUNT(*) FROM PaymentTransaction WHERE RequestID = {requestId}";
+                int count = Convert.ToInt32(DataBase.ExecuteScalar(checkSql));
+
+                if (count > 0)
+                {
+                    MessageBox.Show(
+                             "This request cannot be deleted because it is associated with a payment.\n" +
+                             "For any enquiries, please contact: ideabid136@gmail.com",
+                             "Cannot Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning
+                         );
+                    return;
+                }
+
+
                 string sql = $"DELETE FROM ProjectRequest WHERE RequestID = {requestId}";
                 int affected = DataBase.ExecuteNonQuery(sql);
 
@@ -148,6 +162,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                     MessageBox.Show("Failed to delete request.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

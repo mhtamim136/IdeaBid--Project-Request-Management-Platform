@@ -56,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseConnection\DataBase.cs" />
+    <Compile Include="GUI\FormMakePayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormMakePayment.Designer.cs">
+      <DependentUpon>FormMakePayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormNewResponed.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,12 @@
     <Compile Include="GUI\UserControlOurResponses.Designer.cs">
       <DependentUpon>UserControlOurResponses.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UserControlPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControlPayment.Designer.cs">
+      <DependentUpon>UserControlPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UserControlProjectBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +134,12 @@
     <Compile Include="GUI\UserControlPublicProjects.Designer.cs">
       <DependentUpon>UserControlPublicProjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UserControlUserProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControlUserProfile.Designer.cs">
+      <DependentUpon>UserControlUserProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\UserControlProjectRequestFromUser.cs">
@@ -130,6 +148,15 @@
     <Compile Include="GUI\UserControlProjectRequestFromUser.Designer.cs">
       <DependentUpon>UserControlProjectRequestFromUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UserControlcategory .cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControlcategory .Designer.cs">
+      <DependentUpon>UserControlcategory .cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\FormMakePayment.resx">
+      <DependentUpon>FormMakePayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNewResponed.resx">
       <DependentUpon>FormNewResponed.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,11 +184,17 @@
     <EmbeddedResource Include="GUI\UserControlOurResponses.resx">
       <DependentUpon>UserControlOurResponses.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControlPayment.resx">
+      <DependentUpon>UserControlPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserControlProjectBoard.resx">
       <DependentUpon>UserControlProjectBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserControlPublicProjects.resx">
       <DependentUpon>UserControlPublicProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControlUserProfile.resx">
+      <DependentUpon>UserControlUserProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -175,6 +208,9 @@
     </Compile>
     <EmbeddedResource Include="GUI\UserControlProjectRequestFromUser.resx">
       <DependentUpon>UserControlProjectRequestFromUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControlcategory .resx">
+      <DependentUpon>UserControlcategory .cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

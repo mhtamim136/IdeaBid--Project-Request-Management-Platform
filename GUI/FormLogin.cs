@@ -90,8 +90,10 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+
             panelSignUp.Visible = false;
             panelLogin.Visible = true;
+            panelLogin.BringToFront();
             LoadRemembered();
             textBoxUserNameLogin.Focus();
         }

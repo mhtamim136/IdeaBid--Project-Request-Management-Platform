@@ -43,15 +43,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             }
 
             CurrentUserId = Convert.ToInt32(userIdResult);
-
-            //Welcome Message
-            string fullName = DataBase.ExecuteScalar(
-                $"SELECT FullName FROM UserInfo WHERE ID = {CurrentUserId}"
-            )?.ToString();
-
-            //labelUserDashboard.Text = $"Welcome, {fullName}!";
-            labelUserDashboard.Text =
-                  $"👤 Welcome, {CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fullName.ToLower())}!";
+            WelComeLabelChnaged(this, CurrentUserId);
 
             ResetAllButtons();
         }
@@ -76,6 +68,17 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             }
 
             this.Close();
+        }
+
+        public static void WelComeLabelChnaged(FormUserDashboard FUD,  int userID)
+        {
+            //Welcome Message
+            string fullName = DataBase.ExecuteScalar(
+                $"SELECT FullName FROM UserInfo WHERE ID = {userID}"
+            )?.ToString();
+
+            FUD.labelUserDashboard.Text =
+                  $"👤 Welcome, {CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fullName.ToLower())}!";
         }
 
 
@@ -156,9 +159,9 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private void ButtonProfile_Click(object sender, EventArgs e)
         {
             ActivateButton(ButtonProfile);
-            //userControlUserProfile.LoadUserInfo(CurrentUserId);
-            //userControlUserProfile.BringToFront();
-            
+            userControlUserProfile.LoadUserInfo(this,CurrentUserId);
+            userControlUserProfile.BringToFront();
+
 
         }
 
@@ -186,6 +189,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private void buttonPayment_Click(object sender, EventArgs e)
         {
             ActivateButton(buttonPayment);
+            userControlPayment.BringToFront();
         }
     }
 }

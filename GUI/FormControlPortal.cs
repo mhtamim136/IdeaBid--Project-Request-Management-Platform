@@ -20,7 +20,6 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private bool isLogoutClicked = false;
         private bool isCloseConfirmed = false;
 
-        //Reference to Login Form
         public FormControlPortal(string username, string role) : this()
         {
             LoggedInUser = username;
@@ -203,6 +202,10 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private void buttonCategory_Click(object sender, EventArgs e)
         {
             ActivateButton(buttonCategory);
+            userControlcategory.BringToFront();
+            userControlcategory.LoadCategories();
+
+
 
         }
 

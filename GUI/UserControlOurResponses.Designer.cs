@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanelOurResponses = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroGridDisplayResponses = new MetroFramework.Controls.MetroGrid();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.dgvResponseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvRequestID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDevID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,11 +48,6 @@
             this.dgvDeadLine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvFeedBack = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
             this.tableLayoutPanelOurResponses.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridDisplayResponses)).BeginInit();
@@ -89,14 +89,14 @@
             this.metroGridDisplayResponses.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.metroGridDisplayResponses.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGridDisplayResponses.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGridDisplayResponses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGridDisplayResponses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.metroGridDisplayResponses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.metroGridDisplayResponses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvResponseID,
@@ -108,14 +108,14 @@
             this.dgvDeadLine,
             this.dgvFeedBack,
             this.dgvStatus});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGridDisplayResponses.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGridDisplayResponses.DefaultCellStyle = dataGridViewCellStyle2;
             this.metroGridDisplayResponses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroGridDisplayResponses.EnableHeadersVisualStyles = false;
             this.metroGridDisplayResponses.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -124,14 +124,14 @@
             this.metroGridDisplayResponses.Name = "metroGridDisplayResponses";
             this.metroGridDisplayResponses.ReadOnly = true;
             this.metroGridDisplayResponses.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGridDisplayResponses.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGridDisplayResponses.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGridDisplayResponses.RowHeadersWidth = 51;
             this.metroGridDisplayResponses.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGridDisplayResponses.RowTemplate.Height = 24;
@@ -139,78 +139,6 @@
             this.metroGridDisplayResponses.Size = new System.Drawing.Size(1159, 607);
             this.metroGridDisplayResponses.TabIndex = 0;
             this.metroGridDisplayResponses.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.metroGridDisplayResponses_DataBindingComplete);
-            // 
-            // dgvResponseID
-            // 
-            this.dgvResponseID.DataPropertyName = "ResponseID";
-            this.dgvResponseID.HeaderText = "Response ID";
-            this.dgvResponseID.MinimumWidth = 6;
-            this.dgvResponseID.Name = "dgvResponseID";
-            this.dgvResponseID.ReadOnly = true;
-            // 
-            // dgvRequestID
-            // 
-            this.dgvRequestID.DataPropertyName = "RequestID";
-            this.dgvRequestID.HeaderText = "Request ID";
-            this.dgvRequestID.MinimumWidth = 6;
-            this.dgvRequestID.Name = "dgvRequestID";
-            this.dgvRequestID.ReadOnly = true;
-            // 
-            // dgvDevID
-            // 
-            this.dgvDevID.DataPropertyName = "DevID";
-            this.dgvDevID.HeaderText = "Dev ID";
-            this.dgvDevID.MinimumWidth = 6;
-            this.dgvDevID.Name = "dgvDevID";
-            this.dgvDevID.ReadOnly = true;
-            // 
-            // dgvAdminID
-            // 
-            this.dgvAdminID.DataPropertyName = "AdminID";
-            this.dgvAdminID.HeaderText = "Admin ID";
-            this.dgvAdminID.MinimumWidth = 6;
-            this.dgvAdminID.Name = "dgvAdminID";
-            this.dgvAdminID.ReadOnly = true;
-            // 
-            // dgvProposalDate
-            // 
-            this.dgvProposalDate.DataPropertyName = "ProposalDate";
-            this.dgvProposalDate.HeaderText = "Proposal Date";
-            this.dgvProposalDate.MinimumWidth = 6;
-            this.dgvProposalDate.Name = "dgvProposalDate";
-            this.dgvProposalDate.ReadOnly = true;
-            // 
-            // dgvProposalAmount
-            // 
-            this.dgvProposalAmount.DataPropertyName = "ProposalAmount";
-            this.dgvProposalAmount.HeaderText = "Proposal Amount";
-            this.dgvProposalAmount.MinimumWidth = 6;
-            this.dgvProposalAmount.Name = "dgvProposalAmount";
-            this.dgvProposalAmount.ReadOnly = true;
-            // 
-            // dgvDeadLine
-            // 
-            this.dgvDeadLine.DataPropertyName = "Deadline";
-            this.dgvDeadLine.HeaderText = "Dead-LIne";
-            this.dgvDeadLine.MinimumWidth = 6;
-            this.dgvDeadLine.Name = "dgvDeadLine";
-            this.dgvDeadLine.ReadOnly = true;
-            // 
-            // dgvFeedBack
-            // 
-            this.dgvFeedBack.DataPropertyName = "Feedback";
-            this.dgvFeedBack.HeaderText = "FeedBack";
-            this.dgvFeedBack.MinimumWidth = 6;
-            this.dgvFeedBack.Name = "dgvFeedBack";
-            this.dgvFeedBack.ReadOnly = true;
-            // 
-            // dgvStatus
-            // 
-            this.dgvStatus.DataPropertyName = "StatusName";
-            this.dgvStatus.HeaderText = "Status";
-            this.dgvStatus.MinimumWidth = 6;
-            this.dgvStatus.Name = "dgvStatus";
-            this.dgvStatus.ReadOnly = true;
             // 
             // panelTop
             // 
@@ -286,6 +214,78 @@
             this.buttonRefresh.Text = "Refresh";
             this.buttonRefresh.UseVisualStyleBackColor = false;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
+            // dgvResponseID
+            // 
+            this.dgvResponseID.DataPropertyName = "ResponseID";
+            this.dgvResponseID.HeaderText = "Response ID";
+            this.dgvResponseID.MinimumWidth = 6;
+            this.dgvResponseID.Name = "dgvResponseID";
+            this.dgvResponseID.ReadOnly = true;
+            // 
+            // dgvRequestID
+            // 
+            this.dgvRequestID.DataPropertyName = "RequestID";
+            this.dgvRequestID.HeaderText = "Request ID";
+            this.dgvRequestID.MinimumWidth = 6;
+            this.dgvRequestID.Name = "dgvRequestID";
+            this.dgvRequestID.ReadOnly = true;
+            // 
+            // dgvDevID
+            // 
+            this.dgvDevID.DataPropertyName = "Developer";
+            this.dgvDevID.HeaderText = "Developer";
+            this.dgvDevID.MinimumWidth = 6;
+            this.dgvDevID.Name = "dgvDevID";
+            this.dgvDevID.ReadOnly = true;
+            // 
+            // dgvAdminID
+            // 
+            this.dgvAdminID.DataPropertyName = "Admin";
+            this.dgvAdminID.HeaderText = "Admin";
+            this.dgvAdminID.MinimumWidth = 6;
+            this.dgvAdminID.Name = "dgvAdminID";
+            this.dgvAdminID.ReadOnly = true;
+            // 
+            // dgvProposalDate
+            // 
+            this.dgvProposalDate.DataPropertyName = "ProposalDate";
+            this.dgvProposalDate.HeaderText = "Proposal Date";
+            this.dgvProposalDate.MinimumWidth = 6;
+            this.dgvProposalDate.Name = "dgvProposalDate";
+            this.dgvProposalDate.ReadOnly = true;
+            // 
+            // dgvProposalAmount
+            // 
+            this.dgvProposalAmount.DataPropertyName = "ProposalAmount";
+            this.dgvProposalAmount.HeaderText = "Proposal Amount";
+            this.dgvProposalAmount.MinimumWidth = 6;
+            this.dgvProposalAmount.Name = "dgvProposalAmount";
+            this.dgvProposalAmount.ReadOnly = true;
+            // 
+            // dgvDeadLine
+            // 
+            this.dgvDeadLine.DataPropertyName = "Deadline";
+            this.dgvDeadLine.HeaderText = "Dead-LIne";
+            this.dgvDeadLine.MinimumWidth = 6;
+            this.dgvDeadLine.Name = "dgvDeadLine";
+            this.dgvDeadLine.ReadOnly = true;
+            // 
+            // dgvFeedBack
+            // 
+            this.dgvFeedBack.DataPropertyName = "Feedback";
+            this.dgvFeedBack.HeaderText = "FeedBack";
+            this.dgvFeedBack.MinimumWidth = 6;
+            this.dgvFeedBack.Name = "dgvFeedBack";
+            this.dgvFeedBack.ReadOnly = true;
+            // 
+            // dgvStatus
+            // 
+            this.dgvStatus.DataPropertyName = "StatusName";
+            this.dgvStatus.HeaderText = "Status";
+            this.dgvStatus.MinimumWidth = 6;
+            this.dgvStatus.Name = "dgvStatus";
+            this.dgvStatus.ReadOnly = true;
             // 
             // UserControlOurResponses
             // 

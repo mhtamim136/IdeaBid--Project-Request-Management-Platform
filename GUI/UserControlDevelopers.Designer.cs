@@ -324,7 +324,7 @@
             this.buttonNewUser.TabIndex = 1;
             this.buttonNewUser.Text = "New";
             this.buttonNewUser.UseVisualStyleBackColor = false;
-            this.buttonNewUser.Click += new System.EventHandler(this.buttonNewUser_Click_1);
+            this.buttonNewUser.Click += new System.EventHandler(this.buttonNewUser_Click);
             // 
             // panelDataTable
             // 
@@ -413,6 +413,7 @@
             this.Controls.Add(this.tableLayoutPanelUserManager);
             this.Name = "UserControlDevlopers";
             this.Size = new System.Drawing.Size(1173, 688);
+            this.Load += new System.EventHandler(this.UserControlDevlopers_Load_1);
             this.panelOptionsUserManage.ResumeLayout(false);
             this.panelOptionsUserManage.PerformLayout();
             this.panelManupulation.ResumeLayout(false);

@@ -31,6 +31,11 @@
             this.tableLayoutPanelProjectBoard = new System.Windows.Forms.TableLayoutPanel();
             this.panelDisplay = new System.Windows.Forms.Panel();
             this.dataGridViewProjectBoard = new System.Windows.Forms.DataGridView();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.buttonResponse = new System.Windows.Forms.Button();
             this.dgvRequestID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvUserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,11 +46,6 @@
             this.dgvDeadLine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPostedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.buttonResponse = new System.Windows.Forms.Button();
             this.tableLayoutPanelProjectBoard.SuspendLayout();
             this.panelDisplay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProjectBoard)).BeginInit();
@@ -105,86 +105,6 @@
             this.dataGridViewProjectBoard.Size = new System.Drawing.Size(1159, 601);
             this.dataGridViewProjectBoard.TabIndex = 0;
             this.dataGridViewProjectBoard.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewProjectBoard_DataBindingComplete);
-            // 
-            // dgvRequestID
-            // 
-            this.dgvRequestID.DataPropertyName = "RequestID";
-            this.dgvRequestID.HeaderText = "Request ID";
-            this.dgvRequestID.MinimumWidth = 6;
-            this.dgvRequestID.Name = "dgvRequestID";
-            this.dgvRequestID.ReadOnly = true;
-            // 
-            // dgvUserID
-            // 
-            this.dgvUserID.DataPropertyName = "UserID";
-            this.dgvUserID.HeaderText = "User ID";
-            this.dgvUserID.MinimumWidth = 6;
-            this.dgvUserID.Name = "dgvUserID";
-            this.dgvUserID.ReadOnly = true;
-            // 
-            // dgvCategory
-            // 
-            this.dgvCategory.DataPropertyName = "Category";
-            this.dgvCategory.HeaderText = "Category";
-            this.dgvCategory.MinimumWidth = 6;
-            this.dgvCategory.Name = "dgvCategory";
-            this.dgvCategory.ReadOnly = true;
-            // 
-            // dgvLanguage
-            // 
-            this.dgvLanguage.DataPropertyName = "Languages";
-            this.dgvLanguage.HeaderText = "Language";
-            this.dgvLanguage.MinimumWidth = 6;
-            this.dgvLanguage.Name = "dgvLanguage";
-            this.dgvLanguage.ReadOnly = true;
-            // 
-            // dgvTitle
-            // 
-            this.dgvTitle.DataPropertyName = "Title";
-            this.dgvTitle.HeaderText = "Title";
-            this.dgvTitle.MinimumWidth = 6;
-            this.dgvTitle.Name = "dgvTitle";
-            this.dgvTitle.ReadOnly = true;
-            // 
-            // dgvDescription
-            // 
-            this.dgvDescription.DataPropertyName = "Description";
-            this.dgvDescription.HeaderText = "Description";
-            this.dgvDescription.MinimumWidth = 6;
-            this.dgvDescription.Name = "dgvDescription";
-            this.dgvDescription.ReadOnly = true;
-            // 
-            // dgvBudget
-            // 
-            this.dgvBudget.DataPropertyName = "Budget";
-            this.dgvBudget.HeaderText = "Budget";
-            this.dgvBudget.MinimumWidth = 6;
-            this.dgvBudget.Name = "dgvBudget";
-            this.dgvBudget.ReadOnly = true;
-            // 
-            // dgvDeadLine
-            // 
-            this.dgvDeadLine.DataPropertyName = "Deadline";
-            this.dgvDeadLine.HeaderText = "Dead Line";
-            this.dgvDeadLine.MinimumWidth = 6;
-            this.dgvDeadLine.Name = "dgvDeadLine";
-            this.dgvDeadLine.ReadOnly = true;
-            // 
-            // dgvStatus
-            // 
-            this.dgvStatus.DataPropertyName = "Status";
-            this.dgvStatus.HeaderText = "Status";
-            this.dgvStatus.MinimumWidth = 6;
-            this.dgvStatus.Name = "dgvStatus";
-            this.dgvStatus.ReadOnly = true;
-            // 
-            // dgvPostedDate
-            // 
-            this.dgvPostedDate.DataPropertyName = "PostedDate";
-            this.dgvPostedDate.HeaderText = "Posted Date";
-            this.dgvPostedDate.MinimumWidth = 6;
-            this.dgvPostedDate.Name = "dgvPostedDate";
-            this.dgvPostedDate.ReadOnly = true;
             // 
             // panelTop
             // 
@@ -261,6 +181,86 @@
             this.buttonResponse.Text = "Respond Now";
             this.buttonResponse.UseVisualStyleBackColor = false;
             this.buttonResponse.Click += new System.EventHandler(this.buttonResponse_Click);
+            // 
+            // dgvRequestID
+            // 
+            this.dgvRequestID.DataPropertyName = "RequestID";
+            this.dgvRequestID.HeaderText = "Request ID";
+            this.dgvRequestID.MinimumWidth = 6;
+            this.dgvRequestID.Name = "dgvRequestID";
+            this.dgvRequestID.ReadOnly = true;
+            // 
+            // dgvUserID
+            // 
+            this.dgvUserID.DataPropertyName = "Username";
+            this.dgvUserID.HeaderText = "User";
+            this.dgvUserID.MinimumWidth = 6;
+            this.dgvUserID.Name = "dgvUserID";
+            this.dgvUserID.ReadOnly = true;
+            // 
+            // dgvCategory
+            // 
+            this.dgvCategory.DataPropertyName = "Category";
+            this.dgvCategory.HeaderText = "Category";
+            this.dgvCategory.MinimumWidth = 6;
+            this.dgvCategory.Name = "dgvCategory";
+            this.dgvCategory.ReadOnly = true;
+            // 
+            // dgvLanguage
+            // 
+            this.dgvLanguage.DataPropertyName = "Languages";
+            this.dgvLanguage.HeaderText = "Language";
+            this.dgvLanguage.MinimumWidth = 6;
+            this.dgvLanguage.Name = "dgvLanguage";
+            this.dgvLanguage.ReadOnly = true;
+            // 
+            // dgvTitle
+            // 
+            this.dgvTitle.DataPropertyName = "Title";
+            this.dgvTitle.HeaderText = "Title";
+            this.dgvTitle.MinimumWidth = 6;
+            this.dgvTitle.Name = "dgvTitle";
+            this.dgvTitle.ReadOnly = true;
+            // 
+            // dgvDescription
+            // 
+            this.dgvDescription.DataPropertyName = "Description";
+            this.dgvDescription.HeaderText = "Description";
+            this.dgvDescription.MinimumWidth = 6;
+            this.dgvDescription.Name = "dgvDescription";
+            this.dgvDescription.ReadOnly = true;
+            // 
+            // dgvBudget
+            // 
+            this.dgvBudget.DataPropertyName = "Budget";
+            this.dgvBudget.HeaderText = "Budget";
+            this.dgvBudget.MinimumWidth = 6;
+            this.dgvBudget.Name = "dgvBudget";
+            this.dgvBudget.ReadOnly = true;
+            // 
+            // dgvDeadLine
+            // 
+            this.dgvDeadLine.DataPropertyName = "Deadline";
+            this.dgvDeadLine.HeaderText = "Dead Line";
+            this.dgvDeadLine.MinimumWidth = 6;
+            this.dgvDeadLine.Name = "dgvDeadLine";
+            this.dgvDeadLine.ReadOnly = true;
+            // 
+            // dgvStatus
+            // 
+            this.dgvStatus.DataPropertyName = "Status";
+            this.dgvStatus.HeaderText = "Status";
+            this.dgvStatus.MinimumWidth = 6;
+            this.dgvStatus.Name = "dgvStatus";
+            this.dgvStatus.ReadOnly = true;
+            // 
+            // dgvPostedDate
+            // 
+            this.dgvPostedDate.DataPropertyName = "PostedDate";
+            this.dgvPostedDate.HeaderText = "Posted Date";
+            this.dgvPostedDate.MinimumWidth = 6;
+            this.dgvPostedDate.Name = "dgvPostedDate";
+            this.dgvPostedDate.ReadOnly = true;
             // 
             // UserControlProjectBoard
             // 

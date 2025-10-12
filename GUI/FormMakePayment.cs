@@ -31,15 +31,17 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                     return;
                 }
 
-                string method = comboBoxPayment.Text;
-                string date = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
+
+                int methodId = Convert.ToInt32(comboBoxPayment.SelectedValue);
+                string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                 string updateSql = $@"
-                                UPDATE PaymentTransaction
-                                SET PaymentMethod = '{method}',
-                                    PaymentDate = '{date}',
-                                    PaymentStatus = 'Processing'
-                                WHERE TransactionID = {_transactionId}";
+                                    UPDATE PaymentTransaction
+                                    SET PaymentMethod = {methodId},
+                                        PaymentDate = '{date}',
+                                        PaymentStatus = 'Processing'
+                                    WHERE TransactionID = {_transactionId}";
+
 
                 int rows = DataBase.ExecuteNonQuery(updateSql);
 
@@ -76,10 +78,13 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             {
                 labelPaymentIDShow.Text = _transactionId.ToString();
 
-                DataTable dtMethods = DataBase.GetDataTable("SELECT PaymentName FROM PaymentMethod ORDER BY PaymentName");
+                DataTable dtMethods = DataBase.GetDataTable("SELECT PaymentID, PaymentName FROM PaymentMethod ORDER BY PaymentName");
                 comboBoxPayment.DataSource = dtMethods;
                 comboBoxPayment.DisplayMember = "PaymentName";
+                comboBoxPayment.ValueMember = "PaymentID";
                 comboBoxPayment.SelectedIndex = -1;
+
+
 
                 string sql = $"SELECT Amount, PaymentStatus, PaymentMethod FROM PaymentTransaction WHERE TransactionID = {_transactionId}";
                 DataTable dt = DataBase.GetDataTable(sql);
@@ -98,8 +103,10 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                     string status = r["PaymentStatus"].ToString();
                     string method = r["PaymentMethod"].ToString();
 
-                    if (!string.IsNullOrEmpty(method))
-                        comboBoxPayment.Text = method;
+
+                    if (r["PaymentMethod"] != DBNull.Value)
+                        comboBoxPayment.SelectedValue = Convert.ToInt32(r["PaymentMethod"]);
+
 
                     if (status != "Pending")
                     {

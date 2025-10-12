@@ -25,7 +25,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             string sql = @"
                         SELECT
                             pr.RequestID,
-                            pr.UserID,
+                            u.Username       AS Username,  
                             c.CategoryName   AS Category,
                             pr.Languages     AS Languages,
                             pr.Title,
@@ -35,10 +35,12 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                             s.StatusName     AS Status,
                             pr.PostedDate    AS PostedDate
                         FROM ProjectRequest pr
+                        JOIN UserInfo u ON pr.UserID = u.ID
                         JOIN Category c ON pr.CategoryID = c.CategoryID
                         JOIN ProjectStatus s ON pr.StatusID = s.StatusID
                         WHERE 1=1
                     ";
+
 
             if (!string.IsNullOrWhiteSpace(search))
             {

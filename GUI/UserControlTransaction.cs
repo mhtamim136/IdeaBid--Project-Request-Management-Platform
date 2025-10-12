@@ -22,21 +22,24 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         {
             try
             {
+
                 string query = @"
-            SELECT 
-                pt.TransactionID,
-                pt.RequestID,
-                pr.UserID AS PayerID,
-                pt.Amount,
-                pt.PaymentMethod,
-                pt.PaymentDate,
-                pt.PaymentStatus,
-                pt.ConfirmedBy,
-                pt.ConfirmationDate,
-                pt.Remarks
-            FROM PaymentTransaction pt
-            INNER JOIN ProjectRequest pr ON pt.RequestID = pr.RequestID
-            WHERE pt.PaymentStatus <> 'Pending'";
+                                SELECT 
+                                    pt.TransactionID,
+                                    pt.RequestID,
+                                    pr.UserID AS PayerID,
+                                    pt.Amount,
+                                    pt.PaymentMethod,
+                                    pt.PaymentDate,
+                                    pt.PaymentStatus,
+                                    a.AdminUsername AS ConfirmedBy,
+                                    pt.ConfirmationDate,
+                                    pt.Remarks
+                                FROM PaymentTransaction pt
+                                INNER JOIN ProjectRequest pr ON pt.RequestID = pr.RequestID
+                                LEFT JOIN AdminInfo a ON pt.ConfirmedBy = a.AdminID
+                                WHERE pt.PaymentStatus <> 'Pending'";
+
 
                 if (!string.IsNullOrWhiteSpace(search))
                 {

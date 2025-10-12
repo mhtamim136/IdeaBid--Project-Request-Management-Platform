@@ -21,22 +21,24 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         public void LoadOurResponses(string search = null)
         {
+
             string sql = @"
-        SELECT 
-            pr.ResponseID,
-            pr.RequestID,
-            pr.DevID,
-            pr.AdminID,
-            pr.ProposalDate,
-            pr.ProposalAmount,
-            pr.Deadline,
-            pr.Feedback,
-            pr.StatusID,        
-            s.StatusName       
-        FROM ProjectResponse pr
-        LEFT JOIN ProjectStatus s ON pr.StatusID = s.StatusID
-        WHERE 1=1
-    ";
+                            SELECT 
+                                pr.ResponseID,
+                                pr.RequestID,
+                                d.DevUsername AS Developer,
+                                a.AdminUsername AS Admin,
+                                pr.ProposalDate,
+                                pr.ProposalAmount,
+                                pr.Deadline,
+                                pr.Feedback,
+                                s.StatusName
+                            FROM ProjectResponse pr
+                            LEFT JOIN DevInfo d ON pr.DevID = d.DevID
+                            LEFT JOIN AdminInfo a ON pr.AdminID = a.AdminID
+                            LEFT JOIN ProjectStatus s ON pr.StatusID = s.StatusID
+                            WHERE 1 = 1";
+
 
             if (!string.IsNullOrWhiteSpace(search))
             {

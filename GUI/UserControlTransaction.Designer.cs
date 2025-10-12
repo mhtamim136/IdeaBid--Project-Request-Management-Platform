@@ -278,7 +278,7 @@
             // dgvConfirmBy
             // 
             this.dgvConfirmBy.DataPropertyName = "ConfirmedBy";
-            this.dgvConfirmBy.HeaderText = "Confirm By";
+            this.dgvConfirmBy.HeaderText = "Confirmed By";
             this.dgvConfirmBy.MinimumWidth = 6;
             this.dgvConfirmBy.Name = "dgvConfirmBy";
             this.dgvConfirmBy.ReadOnly = true;

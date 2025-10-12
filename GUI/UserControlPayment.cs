@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,17 +24,21 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         {
             try
             {
-                string sql = $@"
-        SELECT 
-            pt.TransactionID,
-            pt.RequestID,
-            pt.Amount,
-            ISNULL(pt.PaymentMethod, 'Not Paid') AS PaymentMethod,
-            ISNULL(CONVERT(VARCHAR(20), pt.PaymentDate, 120), 'Not Paid') AS PaymentDate,
-            pt.PaymentStatus
-        FROM PaymentTransaction pt
-        INNER JOIN ProjectRequest pr ON pt.RequestID = pr.RequestID
-        WHERE pr.UserID = {userId}";
+                        string sql = $@"
+                                        SELECT
+                            pt.TransactionID,
+                            pt.RequestID,
+                            pt.Amount,
+                            ISNULL(pm.PaymentName, 'Not Paid') AS PaymentMethod,
+                            ISNULL(CONVERT(VARCHAR(20), pt.PaymentDate, 120), 'Not Paid') AS PaymentDate,
+                            pt.PaymentStatus
+                        FROM PaymentTransaction pt
+                        INNER JOIN ProjectRequest pr ON pt.RequestID = pr.RequestID
+                        LEFT JOIN PaymentMethod pm ON pt.PaymentMethod = pm.PaymentID
+                        WHERE pr.UserID = { userId}";
+
+
+
 
                 if (!string.IsNullOrWhiteSpace(search))
                 {

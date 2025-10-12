@@ -42,16 +42,16 @@ Includes the following main tables:
 ![Login Page](screenshots/LoginForm.png)
 
 ### 🔹 Signup
-![Login Page](screenshots/SignupForm.png)
+![Signup Page](screenshots/SignupForm.png)
 
 ### 🔹 User Dashboard
 ![User Dashboard](screenshots/UserDashboard.png)
 
 ### 🔹 Developer Profile
-![Admin Dashboard](screenshots/DevloperProfile.png)
+![Profile](screenshots/DevloperProfile.png)
 
 ### 🔹 User Manager View
-![Payment Page](screenshots/User ManagerView.png)
+![User Manager](screenshots/UserManagerView.png)
 
 
 ## 🧑‍🏫 Author

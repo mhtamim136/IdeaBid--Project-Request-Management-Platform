@@ -294,6 +294,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.md" />
     <None Include="Resources\dashboards %281%29.png" />
   </ItemGroup>
   <ItemGroup />

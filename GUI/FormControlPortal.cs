@@ -34,6 +34,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             }
             else
             {
+
                 tableName = "DevInfo";
                 columnName = "DevFullName";
                 userNameColumn = "DevUserName";
@@ -50,12 +51,14 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             // Role-Based UI
             if (Role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
             {
+                ButtonProfile.Visible = false;
                 this.ButtonProfile.Visible= false;
+                userControlDevProfile.Enabled = false;
 
             }
             else
             {
-                buttonDevlopers.Visible = false;
+                buttonDevelopers.Visible = false;
                 ButtonUsersInfo.Visible = false;
                 buttonTransactions.Visible = false;
             }
@@ -121,12 +124,23 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         private void FormControlPanel_Load(object sender, EventArgs e)
         {
-            ActivateButton(buttonDashboardControlPortal);
+            //ActivateButton(buttonDashboardControlPortal);
+            if (Role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                ActivateButton(buttonDashboardControlPortal);
+                userControlAdmin_DevDashboard.BringToFront();
+            }
+            else
+            {
+                ActivateButton(buttonDashboardControlPortal);
+                userControlAdmin_DevDashboard.BringToFront();
+            }
         }
 
         private void buttonDashboardControlPortal_Click(object sender, EventArgs e)
         {
             ActivateButton(buttonDashboardControlPortal);
+            userControlAdmin_DevDashboard.BringToFront();
         }
 
 
@@ -212,16 +226,30 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private void buttonTransactions_Click(object sender, EventArgs e)
         {
             ActivateButton(buttonTransactions);
+            userControlTransaction.BringToFront();
+
         }
 
         private void buttonDevlopers_Click(object sender, EventArgs e)
         {
-            ActivateButton(buttonDevlopers);
+            ActivateButton(buttonDevelopers);
+            userControlDevlopers.LoadDevelopers();
+            userControlDevlopers.BringToFront();
+
+
+
         }
 
         private void ButtonProfile_Click(object sender, EventArgs e)
         {
             ActivateButton(ButtonProfile);
+
+            userControlDevProfile.LoadUserInfo();
+
+            userControlDevProfile.BringToFront();
+
+
         }
+
     }
 }

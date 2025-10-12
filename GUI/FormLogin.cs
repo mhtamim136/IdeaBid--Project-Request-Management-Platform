@@ -174,7 +174,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 return;
             }
 
-            //Single quote protection
+         
             userName = userName.Replace("'", "''");
             fullName = fullName.Replace("'", "''");
             email = email.Replace("'", "''");

@@ -32,10 +32,10 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroGridForRequestProject = new MetroFramework.Controls.MetroGrid();
             this.dgvRequestId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvcategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,21 +66,21 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.metroGridForRequestProject.AllowUserToAddRows = false;
             this.metroGridForRequestProject.AllowUserToDeleteRows = false;
             this.metroGridForRequestProject.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.AliceBlue;
-            this.metroGridForRequestProject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.AliceBlue;
+            this.metroGridForRequestProject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.metroGridForRequestProject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.metroGridForRequestProject.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.metroGridForRequestProject.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.metroGridForRequestProject.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGridForRequestProject.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGridForRequestProject.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGridForRequestProject.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.metroGridForRequestProject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.metroGridForRequestProject.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvRequestId,
@@ -92,14 +92,14 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.dgvDeadLine,
             this.dgvStatus,
             this.dgvPostedDate});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGridForRequestProject.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGridForRequestProject.DefaultCellStyle = dataGridViewCellStyle11;
             this.metroGridForRequestProject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroGridForRequestProject.EnableHeadersVisualStyles = false;
             this.metroGridForRequestProject.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -109,14 +109,14 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.metroGridForRequestProject.Name = "metroGridForRequestProject";
             this.metroGridForRequestProject.ReadOnly = true;
             this.metroGridForRequestProject.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGridForRequestProject.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGridForRequestProject.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.metroGridForRequestProject.RowHeadersWidth = 51;
             this.metroGridForRequestProject.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGridForRequestProject.RowTemplate.Height = 24;
@@ -260,7 +260,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.buttonViewResponse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonViewResponse.Font = new System.Drawing.Font("Segoe UI Black", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonViewResponse.ForeColor = System.Drawing.Color.Lime;
-            this.buttonViewResponse.Location = new System.Drawing.Point(519, 7);
+            this.buttonViewResponse.Location = new System.Drawing.Point(539, 7);
             this.buttonViewResponse.Name = "buttonViewResponse";
             this.buttonViewResponse.Size = new System.Drawing.Size(226, 46);
             this.buttonViewResponse.TabIndex = 14;
@@ -271,7 +271,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             // textBoxSearch
             // 
             this.textBoxSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.Location = new System.Drawing.Point(917, 13);
+            this.textBoxSearch.Location = new System.Drawing.Point(919, 13);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(322, 39);
             this.textBoxSearch.TabIndex = 13;
@@ -303,9 +303,9 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.ButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDelete.Font = new System.Drawing.Font("Segoe UI Black", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonDelete.ForeColor = System.Drawing.Color.White;
-            this.ButtonDelete.Location = new System.Drawing.Point(163, 6);
+            this.ButtonDelete.Location = new System.Drawing.Point(173, 5);
             this.ButtonDelete.Name = "ButtonDelete";
-            this.ButtonDelete.Size = new System.Drawing.Size(107, 46);
+            this.ButtonDelete.Size = new System.Drawing.Size(137, 51);
             this.ButtonDelete.TabIndex = 11;
             this.ButtonDelete.Text = "Delete";
             this.ButtonDelete.UseVisualStyleBackColor = false;
@@ -320,7 +320,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.buttonNewRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNewRequest.Font = new System.Drawing.Font("Segoe UI Black", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNewRequest.ForeColor = System.Drawing.Color.White;
-            this.buttonNewRequest.Location = new System.Drawing.Point(297, 6);
+            this.buttonNewRequest.Location = new System.Drawing.Point(338, 6);
             this.buttonNewRequest.Name = "buttonNewRequest";
             this.buttonNewRequest.Size = new System.Drawing.Size(192, 46);
             this.buttonNewRequest.TabIndex = 10;
@@ -337,9 +337,9 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRefresh.Font = new System.Drawing.Font("Segoe UI Black", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRefresh.ForeColor = System.Drawing.Color.White;
-            this.buttonRefresh.Location = new System.Drawing.Point(20, 7);
+            this.buttonRefresh.Location = new System.Drawing.Point(20, 5);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(123, 46);
+            this.buttonRefresh.Size = new System.Drawing.Size(137, 51);
             this.buttonRefresh.TabIndex = 7;
             this.buttonRefresh.Text = "Refresh";
             this.buttonRefresh.UseVisualStyleBackColor = false;

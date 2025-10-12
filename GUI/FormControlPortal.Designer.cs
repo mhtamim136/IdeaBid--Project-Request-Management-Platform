@@ -33,11 +33,19 @@
             this.panelTopLabelControlPortal = new System.Windows.Forms.Panel();
             this.labelAdminDevDashboardControlPortal = new System.Windows.Forms.Label();
             this.panelDisplayControlPortal = new System.Windows.Forms.Panel();
+            this.userControlDevProfile = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlDevProfile();
+            this.userControlAdmin_DevDashboard = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlAdmin_DevDashboard();
+            this.userControlTransaction = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlTransaction();
+            this.userControlcategory = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlcategory();
+            this.userControlOurResponses = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlOurResponses();
+            this.userControlProjectBoard = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlProjectBoard();
+            this.userControlOurProjects = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlOurProjects();
+            this.UserManageControlPanel1 = new IdeaBid__Project_Request___Management_Platform.UserControlUserManageControlPanel();
             this.panelSlidebar = new System.Windows.Forms.Panel();
             this.buttonCategory = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.ButtonProfile = new System.Windows.Forms.Button();
-            this.buttonDevlopers = new System.Windows.Forms.Button();
+            this.buttonDevelopers = new System.Windows.Forms.Button();
             this.ButtonUsersInfo = new System.Windows.Forms.Button();
             this.buttonTransactions = new System.Windows.Forms.Button();
             this.buttonOurProjectsControlPortal = new System.Windows.Forms.Button();
@@ -47,11 +55,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelTitleControlPortal = new System.Windows.Forms.Panel();
             this.labelTitleControlPortal = new System.Windows.Forms.Label();
-            this.userControlOurResponses = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlOurResponses();
-            this.userControlProjectBoard = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlProjectBoard();
-            this.userControlOurProjects = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlOurProjects();
-            this.UserManageControlPanel1 = new IdeaBid__Project_Request___Management_Platform.UserControlUserManageControlPanel();
-            this.userControlcategory = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlcategory();
+            this.userControlDevlopers = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlDevlopers();
             this.tableLayoutPanelControlPortal.SuspendLayout();
             this.panelTopLabelControlPortal.SuspendLayout();
             this.panelDisplayControlPortal.SuspendLayout();
@@ -101,6 +105,10 @@
             // 
             this.panelDisplayControlPortal.BackColor = System.Drawing.Color.Transparent;
             this.panelDisplayControlPortal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelDisplayControlPortal.Controls.Add(this.userControlDevlopers);
+            this.panelDisplayControlPortal.Controls.Add(this.userControlDevProfile);
+            this.panelDisplayControlPortal.Controls.Add(this.userControlAdmin_DevDashboard);
+            this.panelDisplayControlPortal.Controls.Add(this.userControlTransaction);
             this.panelDisplayControlPortal.Controls.Add(this.userControlcategory);
             this.panelDisplayControlPortal.Controls.Add(this.userControlOurResponses);
             this.panelDisplayControlPortal.Controls.Add(this.userControlProjectBoard);
@@ -112,13 +120,79 @@
             this.panelDisplayControlPortal.Size = new System.Drawing.Size(1479, 723);
             this.panelDisplayControlPortal.TabIndex = 3;
             // 
+            // userControlDevProfile
+            // 
+            this.userControlDevProfile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlDevProfile.Location = new System.Drawing.Point(0, 0);
+            this.userControlDevProfile.Name = "userControlDevProfile";
+            this.userControlDevProfile.Size = new System.Drawing.Size(1475, 719);
+            this.userControlDevProfile.TabIndex = 8;
+            // 
+            // userControlAdmin_DevDashboard
+            // 
+            this.userControlAdmin_DevDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlAdmin_DevDashboard.Location = new System.Drawing.Point(0, 0);
+            this.userControlAdmin_DevDashboard.Name = "userControlAdmin_DevDashboard";
+            this.userControlAdmin_DevDashboard.Size = new System.Drawing.Size(1475, 719);
+            this.userControlAdmin_DevDashboard.TabIndex = 7;
+            // 
+            // userControlTransaction
+            // 
+            this.userControlTransaction.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlTransaction.Location = new System.Drawing.Point(0, 0);
+            this.userControlTransaction.Name = "userControlTransaction";
+            this.userControlTransaction.Size = new System.Drawing.Size(1475, 719);
+            this.userControlTransaction.TabIndex = 6;
+            // 
+            // userControlcategory
+            // 
+            this.userControlcategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlcategory.Location = new System.Drawing.Point(0, 0);
+            this.userControlcategory.Name = "userControlcategory";
+            this.userControlcategory.Size = new System.Drawing.Size(1475, 719);
+            this.userControlcategory.TabIndex = 5;
+            // 
+            // userControlOurResponses
+            // 
+            this.userControlOurResponses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlOurResponses.Location = new System.Drawing.Point(0, 0);
+            this.userControlOurResponses.Name = "userControlOurResponses";
+            this.userControlOurResponses.Size = new System.Drawing.Size(1475, 719);
+            this.userControlOurResponses.TabIndex = 4;
+            // 
+            // userControlProjectBoard
+            // 
+            this.userControlProjectBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlProjectBoard.Location = new System.Drawing.Point(0, 0);
+            this.userControlProjectBoard.Name = "userControlProjectBoard";
+            this.userControlProjectBoard.Size = new System.Drawing.Size(1475, 719);
+            this.userControlProjectBoard.TabIndex = 3;
+            // 
+            // userControlOurProjects
+            // 
+            this.userControlOurProjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlOurProjects.Location = new System.Drawing.Point(0, 0);
+            this.userControlOurProjects.Margin = new System.Windows.Forms.Padding(4);
+            this.userControlOurProjects.Name = "userControlOurProjects";
+            this.userControlOurProjects.Size = new System.Drawing.Size(1475, 719);
+            this.userControlOurProjects.TabIndex = 2;
+            // 
+            // UserManageControlPanel1
+            // 
+            this.UserManageControlPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.UserManageControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserManageControlPanel1.Location = new System.Drawing.Point(0, 0);
+            this.UserManageControlPanel1.Name = "UserManageControlPanel1";
+            this.UserManageControlPanel1.Size = new System.Drawing.Size(1475, 719);
+            this.UserManageControlPanel1.TabIndex = 0;
+            // 
             // panelSlidebar
             // 
             this.panelSlidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(99)))), ((int)(((byte)(137)))));
             this.panelSlidebar.Controls.Add(this.buttonCategory);
             this.panelSlidebar.Controls.Add(this.buttonLogout);
             this.panelSlidebar.Controls.Add(this.ButtonProfile);
-            this.panelSlidebar.Controls.Add(this.buttonDevlopers);
+            this.panelSlidebar.Controls.Add(this.buttonDevelopers);
             this.panelSlidebar.Controls.Add(this.ButtonUsersInfo);
             this.panelSlidebar.Controls.Add(this.buttonTransactions);
             this.panelSlidebar.Controls.Add(this.buttonOurProjectsControlPortal);
@@ -193,26 +267,26 @@
             this.ButtonProfile.UseVisualStyleBackColor = false;
             this.ButtonProfile.Click += new System.EventHandler(this.ButtonProfile_Click);
             // 
-            // buttonDevlopers
+            // buttonDevelopers
             // 
-            this.buttonDevlopers.BackColor = System.Drawing.Color.Transparent;
-            this.buttonDevlopers.FlatAppearance.BorderSize = 0;
-            this.buttonDevlopers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.buttonDevlopers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
-            this.buttonDevlopers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDevlopers.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDevlopers.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonDevlopers.Image = ((System.Drawing.Image)(resources.GetObject("buttonDevlopers.Image")));
-            this.buttonDevlopers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDevlopers.Location = new System.Drawing.Point(0, 492);
-            this.buttonDevlopers.Name = "buttonDevlopers";
-            this.buttonDevlopers.Size = new System.Drawing.Size(280, 48);
-            this.buttonDevlopers.TabIndex = 9;
-            this.buttonDevlopers.Text = "  Devlopers";
-            this.buttonDevlopers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonDevlopers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonDevlopers.UseVisualStyleBackColor = false;
-            this.buttonDevlopers.Click += new System.EventHandler(this.buttonDevlopers_Click);
+            this.buttonDevelopers.BackColor = System.Drawing.Color.Transparent;
+            this.buttonDevelopers.FlatAppearance.BorderSize = 0;
+            this.buttonDevelopers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.buttonDevelopers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.buttonDevelopers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDevelopers.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDevelopers.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonDevelopers.Image = ((System.Drawing.Image)(resources.GetObject("buttonDevelopers.Image")));
+            this.buttonDevelopers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDevelopers.Location = new System.Drawing.Point(0, 492);
+            this.buttonDevelopers.Name = "buttonDevelopers";
+            this.buttonDevelopers.Size = new System.Drawing.Size(280, 48);
+            this.buttonDevelopers.TabIndex = 9;
+            this.buttonDevelopers.Text = "  Developers";
+            this.buttonDevelopers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonDevelopers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonDevelopers.UseVisualStyleBackColor = false;
+            this.buttonDevelopers.Click += new System.EventHandler(this.buttonDevlopers_Click);
             // 
             // ButtonUsersInfo
             // 
@@ -371,47 +445,13 @@
             this.labelTitleControlPortal.TabIndex = 3;
             this.labelTitleControlPortal.Text = "IdeaBid";
             // 
-            // userControlOurResponses
+            // userControlDevlopers
             // 
-            this.userControlOurResponses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlOurResponses.Location = new System.Drawing.Point(0, 0);
-            this.userControlOurResponses.Name = "userControlOurResponses";
-            this.userControlOurResponses.Size = new System.Drawing.Size(1475, 719);
-            this.userControlOurResponses.TabIndex = 4;
-            // 
-            // userControlProjectBoard
-            // 
-            this.userControlProjectBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlProjectBoard.Location = new System.Drawing.Point(0, 0);
-            this.userControlProjectBoard.Name = "userControlProjectBoard";
-            this.userControlProjectBoard.Size = new System.Drawing.Size(1475, 719);
-            this.userControlProjectBoard.TabIndex = 3;
-            // 
-            // userControlOurProjects
-            // 
-            this.userControlOurProjects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlOurProjects.Location = new System.Drawing.Point(0, 0);
-            this.userControlOurProjects.Margin = new System.Windows.Forms.Padding(4);
-            this.userControlOurProjects.Name = "userControlOurProjects";
-            this.userControlOurProjects.Size = new System.Drawing.Size(1475, 719);
-            this.userControlOurProjects.TabIndex = 2;
-            // 
-            // UserManageControlPanel1
-            // 
-            this.UserManageControlPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.UserManageControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserManageControlPanel1.Location = new System.Drawing.Point(0, 0);
-            this.UserManageControlPanel1.Name = "UserManageControlPanel1";
-            this.UserManageControlPanel1.Size = new System.Drawing.Size(1475, 719);
-            this.UserManageControlPanel1.TabIndex = 0;
-            // 
-            // userControlcategory
-            // 
-            this.userControlcategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlcategory.Location = new System.Drawing.Point(0, 0);
-            this.userControlcategory.Name = "userControlcategory";
-            this.userControlcategory.Size = new System.Drawing.Size(1475, 719);
-            this.userControlcategory.TabIndex = 5;
+            this.userControlDevlopers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlDevlopers.Location = new System.Drawing.Point(0, 0);
+            this.userControlDevlopers.Name = "userControlDevlopers";
+            this.userControlDevlopers.Size = new System.Drawing.Size(1475, 719);
+            this.userControlDevlopers.TabIndex = 9;
             // 
             // FormControlPortal
             // 
@@ -439,7 +479,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelControlPortal;
         private System.Windows.Forms.Panel panelSlidebar;
-        private System.Windows.Forms.Button buttonDevlopers;
+        private System.Windows.Forms.Button buttonDevelopers;
         private System.Windows.Forms.Button ButtonUsersInfo;
         private System.Windows.Forms.Button buttonTransactions;
         private System.Windows.Forms.Button buttonOurProjectsControlPortal;
@@ -460,5 +500,9 @@
         private System.Windows.Forms.Button buttonLogout;
         private System.Windows.Forms.Button buttonCategory;
         private UserControlcategory userControlcategory;
+        private UserControlTransaction userControlTransaction;
+        private UserControlAdmin_DevDashboard userControlAdmin_DevDashboard;
+        private UserControlDevProfile userControlDevProfile;
+        private UserControlDevlopers userControlDevlopers;
     }
 }

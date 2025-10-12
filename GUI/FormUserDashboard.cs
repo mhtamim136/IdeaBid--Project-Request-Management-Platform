@@ -150,10 +150,10 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
         private void FormUserDashboard_Load(object sender, EventArgs e)
         {
+            ActivateButton(buttonDashboard);
+            userControlUserDashBoard.LoadProjectStatesChart(CurrentUserId);
+            userControlUserDashBoard.BringToFront();
 
-            userControlProjectRequestFormUser.LoadRequests(CurrentUserId);
-
-            userControlProjectRequestFormUser.BringToFront();
         }
 
         private void ButtonProfile_Click(object sender, EventArgs e)
@@ -184,6 +184,8 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         private void buttonDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(buttonDashboard);
+            userControlUserDashBoard.LoadProjectStatesChart(CurrentUserId);
+            userControlUserDashBoard.BringToFront();
         }
 
         private void buttonPayment_Click(object sender, EventArgs e)

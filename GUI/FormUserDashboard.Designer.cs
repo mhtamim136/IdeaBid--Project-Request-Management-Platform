@@ -43,6 +43,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelTitleControlPortal = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.userControlUserDashBoard = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlUserDashBoard();
             this.userControlPayment = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlPayment();
             this.userControlUserProfile = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlUserProfile();
             this.userControlPublicProjects = new IdeaBid__Project_Request___Management_Platform.GUI.UserControlPublicProjects();
@@ -58,6 +59,7 @@
             // panelDisplay
             // 
             this.panelDisplay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelDisplay.Controls.Add(this.userControlUserDashBoard);
             this.panelDisplay.Controls.Add(this.userControlPayment);
             this.panelDisplay.Controls.Add(this.userControlUserProfile);
             this.panelDisplay.Controls.Add(this.userControlPublicProjects);
@@ -275,6 +277,14 @@
             this.labelTitle.TabIndex = 3;
             this.labelTitle.Text = "IdeaBid";
             // 
+            // userControlUserDashBoard
+            // 
+            this.userControlUserDashBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlUserDashBoard.Location = new System.Drawing.Point(0, 0);
+            this.userControlUserDashBoard.Name = "userControlUserDashBoard";
+            this.userControlUserDashBoard.Size = new System.Drawing.Size(1400, 661);
+            this.userControlUserDashBoard.TabIndex = 4;
+            // 
             // userControlPayment
             // 
             this.userControlPayment.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -327,7 +337,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormUserDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormUserDashboard";
+            this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.FormUserDashboard_Load);
             this.panelDisplay.ResumeLayout(false);
             this.tableLayoutPanelControlPortal.ResumeLayout(false);
@@ -361,5 +371,6 @@
         private UserControlPublicProjects userControlPublicProjects;
         private UserControlUserProfile userControlUserProfile;
         private UserControlPayment userControlPayment;
+        private UserControlUserDashBoard userControlUserDashBoard;
     }
 }

@@ -1,4 +1,4 @@
-﻿# 💡 IdeaBid – Project Request & Management Platform
+# 💡 IdeaBid – Project Request & Management Platform
 
 ## 📘 Overview
 IdeaBid is a C# and SQL Server-based platform that connects project requesters with developers and administrators.  

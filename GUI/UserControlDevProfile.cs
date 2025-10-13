@@ -226,13 +226,15 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         {
             try
             {
-                string sql = "SELECT DevPassword FROM DevInfo WHERE DevID = {currentUserId}";
+                string sql = $"SELECT DevPassword FROM DevInfo WHERE DevID = {currentUserId}";
+
                 DataTable dt = DataBase.GetDataTable(sql);
 
                 if (dt.Rows.Count > 0)
                 {
-                    string dbPassword = dt.Rows[0]["DevPassword"].ToString();
-                    return dbPassword == oldPassword; 
+                    string dbPassword = dt.Rows[0]["DevPassword"].ToString().Trim();
+                    return dbPassword == oldPassword.Trim();
+
                 }
                 return false;
             }
@@ -257,6 +259,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
                 if (rowsAffected > 0)
                 {
+                    ((FormControlPortal)this.ParentForm)?.RefreshWelcomeLabel();
                     MessageBox.Show("Developer information updated successfully!", "Success",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -296,6 +299,8 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
 
                 if (rowsAffected > 0)
                 {
+                    ((FormControlPortal)this.ParentForm)?.RefreshWelcomeLabel();
+
                     MessageBox.Show("Developer information and password updated successfully!", "Success",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 

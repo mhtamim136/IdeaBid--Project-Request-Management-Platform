@@ -61,6 +61,7 @@
             this.dgvUserType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanelUserManager.SuspendLayout();
             this.panelOptionsUserManage.SuspendLayout();
             this.panelManupulation.SuspendLayout();
@@ -394,7 +395,8 @@
             this.dgvEmail,
             this.dgvUserType,
             this.dgvPassword,
-            this.dgvCreatedDate});
+            this.dgvCreatedDate,
+            this.dgvCreatedBy});
             this.dgvTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTable.Location = new System.Drawing.Point(0, 0);
             this.dgvTable.Name = "dgvTable";
@@ -461,6 +463,14 @@
             this.dgvCreatedDate.Name = "dgvCreatedDate";
             this.dgvCreatedDate.ReadOnly = true;
             // 
+            // dgvCreatedBy
+            // 
+            this.dgvCreatedBy.DataPropertyName = "CreatedBy";
+            this.dgvCreatedBy.HeaderText = "Created By";
+            this.dgvCreatedBy.MinimumWidth = 6;
+            this.dgvCreatedBy.Name = "dgvCreatedBy";
+            this.dgvCreatedBy.ReadOnly = true;
+            // 
             // UserControlUserManageControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -518,5 +528,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvUserType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCreatedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCreatedBy;
     }
 }

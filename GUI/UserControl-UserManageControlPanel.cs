@@ -1,4 +1,5 @@
 ﻿using IdeaBid__Project_Request___Management_Platform.DataBaseConnection;
+using IdeaBid__Project_Request___Management_Platform.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,8 +36,20 @@ namespace IdeaBid__Project_Request___Management_Platform
 
         public void LoadUsers(string search = null)
         {
-            string sql = @"SELECT ID, UserName, FullName, Email, UserType, Password, CreatedDate
-                   FROM UserInfo";
+
+            string sql = @"
+                        SELECT 
+                            U.ID, 
+                            U.UserName, 
+                            U.FullName, 
+                            U.Email, 
+                            U.UserType, 
+                            U.Password, 
+                            U.CreatedDate,
+                            A.AdminUsername AS CreatedBy
+                        FROM UserInfo U
+                        LEFT JOIN AdminInfo A ON U.AdminID = A.AdminID";
+
 
             if (!string.IsNullOrWhiteSpace(search))
             {
@@ -157,6 +170,12 @@ namespace IdeaBid__Project_Request___Management_Platform
 
         private void buttonSaveUser_Click(object sender, EventArgs e)
         {
+            string adminUser = FormControlPortal.LoggedInUser;
+            object adminIdObj = DataBase.ExecuteScalar($"SELECT AdminID FROM AdminInfo WHERE AdminUsername = '{adminUser}'");
+            int? adminId = adminIdObj != null ? Convert.ToInt32(adminIdObj) : (int?)null;
+
+
+
             string username = textBoxUserName.Text.Trim();
             string fullName = textBoxFullName.Text.Trim();
             string email = textBoxEmail.Text.Trim();
@@ -200,9 +219,12 @@ namespace IdeaBid__Project_Request___Management_Platform
                     return;
                 }
 
+
                 string insertSql = $@"
-                                INSERT INTO UserInfo (UserName, FullName, Email, UserType, Password, CreatedDate)
-                                VALUES ('{username}', '{fullName}', '{email}', '{userType}', '{password}', GETDATE())";
+                                    INSERT INTO UserInfo (UserName, FullName, Email, UserType, Password, CreatedDate, AdminID)
+                                    VALUES ('{username}', '{fullName}', '{email}', '{userType}', '{password}', GETDATE(), 
+                                            {(adminId.HasValue ? adminId.Value.ToString() : "NULL")})";
+
 
                 if (DataBase.ExecuteNonQuery(insertSql) > 0)
                 {
@@ -230,14 +252,18 @@ namespace IdeaBid__Project_Request___Management_Platform
                 }
 
                 string updateSql = $@"
-                                    UPDATE UserInfo 
-                                    SET 
-                                        UserName = '{username}', 
-                                        FullName = '{fullName}', 
-                                        Email = '{email}', 
-                                        UserType = '{userType}', 
-                                        Password = '{password}'
-                                    WHERE ID = {selectedUserId}";
+                                UPDATE UserInfo 
+                                SET 
+                                    UserName = '{username}', 
+                                    FullName = '{fullName}', 
+                                    Email = '{email}', 
+                                    UserType = '{userType}', 
+                                    Password = '{password}',
+                                    AdminID = {(adminId.HasValue ? adminId.Value.ToString() : "NULL")}
+                                WHERE ID = {selectedUserId}";
+
+
+
 
                 if (DataBase.ExecuteNonQuery(updateSql) > 0)
                 {

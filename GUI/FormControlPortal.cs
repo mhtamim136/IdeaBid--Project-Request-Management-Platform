@@ -65,6 +65,36 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         }
 
 
+        public void RefreshWelcomeLabel()
+        {
+            string tableName, columnName, userNameColumn;
+
+            if (Role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                tableName = "AdminInfo";
+                columnName = "AdminFullName";
+                userNameColumn = "AdminUserName";
+            }
+            else
+            {
+                tableName = "DevInfo";
+                columnName = "DevFullName";
+                userNameColumn = "DevUserName";
+            }
+
+            string fullName = DataBase.ExecuteScalar(
+                $@"SELECT {columnName} FROM {tableName} WHERE {userNameColumn} = '{LoggedInUser}'"
+            )?.ToString();
+
+            if (!string.IsNullOrWhiteSpace(fullName))
+            {
+                labelAdminDevDashboardControlPortal.Text =
+                    $"👤 Welcome, {CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fullName.ToLower())}  |  Role: {Role}";
+            }
+        }
+
+
+
         public FormControlPortal()
         {
             InitializeComponent();

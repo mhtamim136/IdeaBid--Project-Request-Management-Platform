@@ -41,10 +41,21 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
         {
             try
             {
+            //    string sql = $@"
+            //SELECT TransactionID, Amount, PaymentMethod, PaymentStatus, Remarks
+            //FROM PaymentTransaction
+            //WHERE TransactionID = {_transactionId}";
+
                 string sql = $@"
-            SELECT TransactionID, Amount, PaymentMethod, PaymentStatus, Remarks
-            FROM PaymentTransaction
-            WHERE TransactionID = {_transactionId}";
+                                SELECT 
+                                    pt.TransactionID, 
+                                    pt.Amount, 
+                                    pm.PaymentName AS PaymentMethodName, 
+                                    pt.PaymentStatus, 
+                                    pt.Remarks
+                                FROM PaymentTransaction pt
+                                INNER JOIN PaymentMethod pm ON pt.PaymentMethod = pm.PaymentID
+                                WHERE pt.TransactionID = {_transactionId}";
 
                 DataTable dt = DataBase.GetDataTable(sql);
                 if (dt == null || dt.Rows.Count == 0)
@@ -58,10 +69,11 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
                 DataRow row = dt.Rows[0];
                 labelTransactionIDShow.Text = row["TransactionID"].ToString();
                 labelAmountShow.Text = $"{Convert.ToDecimal(row["Amount"]):0.00} ৳";
-                textBoxPaymentMethod.Text = row["PaymentMethod"]?.ToString();
+                textBoxPaymentMethod.Text = row["PaymentMethodName"]?.ToString();
                 metroTextBoxRemarks.Text = row["Remarks"]?.ToString();
 
                 string status = row["PaymentStatus"].ToString();
+
 
                 if (status.Equals("Confirmed", StringComparison.OrdinalIgnoreCase))
                 {

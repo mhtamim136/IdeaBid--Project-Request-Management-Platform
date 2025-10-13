@@ -81,6 +81,7 @@
             this.Controls.Add(this.chart1);
             this.Name = "UserControlAdmin_DevDashboard";
             this.Size = new System.Drawing.Size(1475, 674);
+            this.Load += new System.EventHandler(this.UserControlAdmin_DevDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);

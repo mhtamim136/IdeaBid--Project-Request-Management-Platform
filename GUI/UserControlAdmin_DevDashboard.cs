@@ -109,7 +109,7 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             }
         }
 
-        private void UserControlDashBoard_Load(object sender, EventArgs e)
+        private void UserControlAdmin_DevDashboard_Load(object sender, EventArgs e)
         {
 
         }

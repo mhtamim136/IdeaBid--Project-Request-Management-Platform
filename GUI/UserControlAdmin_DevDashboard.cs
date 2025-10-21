@@ -25,15 +25,11 @@ namespace IdeaBid__Project_Request___Management_Platform.GUI
             LoadProjectStatusChart();
         }
 
-
-
-
-
         private void LoadUserTypeChart()
         {
             try
             {
-                string query = @"SELECT UserType, COUNT(*) AS TotalUsers 
+                string query = @"SELECT UserType, COUNT(*) AS TotalUsers
                                  FROM UserInfo
                                  GROUP BY UserType";
 
